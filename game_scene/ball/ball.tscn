@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4go7s62rahph"]
+[gd_scene load_steps=5 format=3 uid="uid://c4go7s62rahph"]
 
 [ext_resource type="Script" path="res://game_scene/ball/ball.gd" id="1_trjlc"]
+[ext_resource type="Texture2D" uid="uid://4yrcihh6weol" path="res://game_scene/ball/ball.png" id="2_cqyau"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sn330"]
 friction = 0.2
@@ -8,13 +9,6 @@ bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihpjw"]
 radius = 30.0
-
-[sub_resource type="Gradient" id="Gradient_8hx53"]
-interpolation_mode = 1
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_8tyrd"]
-gradient = SubResource("Gradient_8hx53")
-width = 1
 
 [node name="ball" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_sn330")
@@ -25,5 +19,5 @@ script = ExtResource("1_trjlc")
 shape = SubResource("CircleShape2D_ihpjw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(30, 30)
-texture = SubResource("GradientTexture1D_8tyrd")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_cqyau")
