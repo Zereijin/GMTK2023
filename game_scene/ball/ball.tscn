@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4go7s62rahph"]
+[gd_scene load_steps=6 format=3 uid="uid://c4go7s62rahph"]
+
+[ext_resource type="Script" path="res://game_scene/ball/ball.gd" id="1_trjlc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sn330"]
 friction = 0.2
@@ -17,6 +19,7 @@ width = 1
 [node name="ball" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_sn330")
 lock_rotation = true
+script = ExtResource("1_trjlc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ihpjw")
