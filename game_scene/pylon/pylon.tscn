@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnbx7rddw0b0x"]
+
+[ext_resource type="Script" path="res://game_scene/pylon/pylon.gd" id="1_0iuv5"]
+[ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="1_8mx0n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1rcc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8mx0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_8mx0n")
+}],
+"loop": false,
+"name": &"bump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8mx0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_8mx0n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbdp5"]
+radius = 62.0322
+
+[node name="pylon" type="StaticBody2D"]
+script = ExtResource("1_0iuv5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r1rcc")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sbdp5")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
