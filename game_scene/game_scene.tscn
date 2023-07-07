@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmg85pdsmpox8"]
+[gd_scene load_steps=8 format=3 uid="uid://dmg85pdsmpox8"]
 
 [ext_resource type="PackedScene" uid="uid://c4go7s62rahph" path="res://game_scene/ball/ball.tscn" id="1_ugfsb"]
 [ext_resource type="Script" path="res://game_scene/game_scene.gd" id="1_vtrq5"]
 [ext_resource type="PhysicsMaterial" uid="uid://ci6bbjwmehr3r" path="res://game_scene/wall_material.tres" id="3_54gti"]
+[ext_resource type="PackedScene" uid="uid://x068pgmgfl7i" path="res://game_scene/fuel_manager/fuel_manager.tscn" id="4_eh0kd"]
 
 [sub_resource type="Gradient" id="Gradient_6oujc"]
 interpolation_mode = 1
@@ -18,8 +19,9 @@ width = 1
 [node name="game_scene" type="Node2D"]
 script = ExtResource("1_vtrq5")
 
-[node name="ball" parent="." instance=ExtResource("1_ugfsb")]
+[node name="ball" parent="." node_paths=PackedStringArray("fuel_manager") instance=ExtResource("1_ugfsb")]
 position = Vector2(301, 221)
+fuel_manager = NodePath("../fuel_manager")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(300, 400)
@@ -34,3 +36,5 @@ physics_material_override = ExtResource("3_54gti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
 shape = SubResource("RectangleShape2D_5epbk")
+
+[node name="fuel_manager" parent="." instance=ExtResource("4_eh0kd")]
