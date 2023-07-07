@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dmg85pdsmpox8"]
+[gd_scene load_steps=47 format=3 uid="uid://dmg85pdsmpox8"]
 
 [ext_resource type="PackedScene" uid="uid://c4go7s62rahph" path="res://game_scene/ball/ball.tscn" id="1_ugfsb"]
 [ext_resource type="Script" path="res://game_scene/game_scene.gd" id="1_vtrq5"]
@@ -8,19 +8,8 @@
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="6_fys0u"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="7_gam0c"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="8_c1nll"]
-[ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="8_wafhe"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_open.gd" id="10_br5xm"]
 [ext_resource type="Script" path="res://game_scene/fuel_manager/fuel_manager.gd" id="11_wdthn"]
-
-[sub_resource type="Gradient" id="Gradient_6oujc"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_no12w"]
-gradient = SubResource("Gradient_6oujc")
-width = 1
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5epbk"]
 
 [sub_resource type="Resource" id="Resource_5h002"]
 script = ExtResource("5_jihvj")
@@ -201,10 +190,77 @@ Array[int]([0, 7]): 15
 _next_key = 17
 _material_overrides = {}
 
+[sub_resource type="Gradient" id="Gradient_cpce4"]
+offsets = PackedFloat32Array(0, 0.967213, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.262295, 0.262295, 0.262295, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sxcws"]
+gradient = SubResource("Gradient_cpce4")
+
 [sub_resource type="Resource" id="Resource_0lxs3"]
 script = ExtResource("8_c1nll")
+_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([null])
+fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_sxcws")])
+fill_texture_z_index = -10
+fill_texture_show_behind_parent = false
+fill_mesh_offset = 0.0
+render_offset = 0.0
+
+[sub_resource type="Resource" id="Resource_2y7gt"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_p1eyk"]
+script = ExtResource("6_fys0u")
+position = Vector2(192, 1488)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_2y7gt")
+
+[sub_resource type="Resource" id="Resource_v0wj7"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_wc0xl"]
+script = ExtResource("6_fys0u")
+position = Vector2(192, 1680)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_v0wj7")
+
+[sub_resource type="Resource" id="Resource_3op6i"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_b5lvx"]
+script = ExtResource("6_fys0u")
+position = Vector2(384, 1824)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_3op6i")
+
+[sub_resource type="Resource" id="Resource_ux84k"]
+script = ExtResource("7_gam0c")
+_points = {
+0: SubResource("Resource_p1eyk"),
+1: SubResource("Resource_wc0xl"),
+7: SubResource("Resource_b5lvx")
+}
+_point_order = Array[int]([0, 1, 7])
+_constraints = {}
+_next_key = 8
+_material_overrides = {}
+
+[sub_resource type="Resource" id="Resource_np1pf"]
+script = ExtResource("8_c1nll")
 _edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([])
-fill_textures = Array[Texture2D]([ExtResource("8_wafhe")])
+fill_textures = Array[Texture2D]([])
 fill_texture_z_index = -10
 fill_texture_show_behind_parent = false
 fill_mesh_offset = 0.0
@@ -232,35 +288,26 @@ drag_bottom_margin = 0.5
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Node2D" type="Node2D" parent="."]
-visible = false
-position = Vector2(0, 400)
-rotation = 0.523599
-scale = Vector2(40, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-scale = Vector2(20, 20)
-texture = SubResource("GradientTexture1D_no12w")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
-physics_material_override = ExtResource("3_54gti")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-shape = SubResource("RectangleShape2D_5epbk")
-
 [node name="fuel_manager" type="Node" parent="."]
 script = ExtResource("11_wdthn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="walls" type="Node2D" parent="."]
+
+[node name="outer_walls" type="StaticBody2D" parent="walls"]
 physics_material_override = ExtResource("3_54gti")
 
-[node name="SS2D_Shape_Closed" type="Node2D" parent="StaticBody2D"]
+[node name="SS2D_Shape_Closed" type="Node2D" parent="walls/outer_walls"]
 script = ExtResource("4_5o0n3")
 _points = SubResource("Resource_o2ok5")
 shape_material = SubResource("Resource_0lxs3")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/outer_walls"]
 visible = false
 modulate = Color(1, 1, 1, 0.3)
 polygon = PackedVector2Array(-0.103544, -0.103544, 1152.1, -0.103553, 1152.1, 1920.1, 767.66, 1920.1, 1055.95, 1727.97, 1056, 336, 1055.06, 325.688, 1052.84, 313.852, 1048.5, 298.5, 1041.35, 280.336, 1030.69, 260.063, 1015.8, 238.383, 995.999, 216.001, 970.57, 193.618, 938.812, 171.938, 900.023, 151.665, 853.5, 133.501, 798.539, 118.149, 734.437, 106.313, 660.492, 98.6956, 576, 96.0003, 491.508, 98.6956, 417.563, 106.313, 353.461, 118.149, 298.5, 133.501, 251.977, 151.665, 213.188, 171.938, 181.43, 193.618, 156.001, 216.001, 136.196, 238.383, 121.313, 260.063, 110.649, 280.336, 103.501, 298.5, 99.1645, 313.852, 96.9381, 325.688, 96.0005, 336, 96.0522, 1727.97, 384.34, 1920.1, -0.103554, 1920.1)
+
+[node name="SS2D_Shape_Open" type="Node2D" parent="walls"]
+script = ExtResource("10_br5xm")
+_points = SubResource("Resource_ux84k")
+shape_material = SubResource("Resource_np1pf")
