@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw4g4sqrid6dl"]
+[gd_scene load_steps=6 format=3 uid="uid://bw4g4sqrid6dl"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_0nx3n"]
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="2_liuhe"]
+[ext_resource type="PackedScene" uid="uid://dmg85pdsmpox8" path="res://game_scene/game_scene.tscn" id="2_pi1d5"]
 [ext_resource type="PackedScene" uid="uid://ciev25y0jewy5" path="res://main_menu/sound_button/sound_button.tscn" id="3_4aeqp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqvvs"]
@@ -19,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0nx3n")
+start_scene = ExtResource("2_pi1d5")
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 1

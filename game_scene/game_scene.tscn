@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmg85pdsmpox8"]
+
+[ext_resource type="PackedScene" uid="uid://c4go7s62rahph" path="res://game_scene/ball/ball.tscn" id="1_ugfsb"]
+[ext_resource type="Script" path="res://game_scene/game_scene.gd" id="1_vtrq5"]
+[ext_resource type="PhysicsMaterial" uid="uid://ci6bbjwmehr3r" path="res://game_scene/wall_material.tres" id="3_54gti"]
+
+[sub_resource type="Gradient" id="Gradient_6oujc"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_no12w"]
+gradient = SubResource("Gradient_6oujc")
+width = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5epbk"]
+
+[node name="game_scene" type="Node2D"]
+script = ExtResource("1_vtrq5")
+
+[node name="ball" parent="." instance=ExtResource("1_ugfsb")]
+position = Vector2(301, 221)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(300, 400)
+rotation = 0.523599
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+scale = Vector2(20, 20)
+texture = SubResource("GradientTexture1D_no12w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+physics_material_override = ExtResource("3_54gti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_5epbk")
