@@ -215,11 +215,25 @@ script = ExtResource("1_vtrq5")
 metadata/_edit_vertical_guides_ = [0.0, 1152.0, 384.0, 768.0, 192.0, 960.0, 576.0, 96.0, 1056.0]
 metadata/_edit_horizontal_guides_ = [648.0, 0.0, 1296.0, 1944.0, 1750.0, 96.0, 324.0]
 
-[node name="ball" parent="." instance=ExtResource("1_ugfsb")]
-position = Vector2(301, 221)
+[node name="ball" parent="." node_paths=PackedStringArray("fuel_manager") instance=ExtResource("1_ugfsb")]
+fuel_manager = NodePath("../fuel_manager")
+
+[node name="Camera2D" type="Camera2D" parent="ball"]
+limit_left = -576
+limit_top = -1000
+limit_right = 576
+limit_bottom = 1000
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+drag_vertical_enabled = true
+drag_top_margin = 0.5
+drag_bottom_margin = 0.5
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(300, 400)
+position = Vector2(0, 400)
 rotation = 0.523599
 scale = Vector2(40, 1)
 
