@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnbx7rddw0b0x"]
+[gd_scene load_steps=7 format=3 uid="uid://bnbx7rddw0b0x"]
 
 [ext_resource type="Script" path="res://game_scene/pylon/pylon.gd" id="1_0iuv5"]
 [ext_resource type="Texture2D" uid="uid://vqfkelyxsmox" path="res://game_scene/pylon/pylon_hit.png" id="2_4f32k"]
 [ext_resource type="Texture2D" uid="uid://dwbmpeo6iqcat" path="res://game_scene/pylon/pylon.png" id="3_gr08u"]
+[ext_resource type="AudioStream" uid="uid://gokkm743xnm0" path="res://game_scene/pylon/pylon_hit.ogg" id="4_lc82c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1rcc"]
 animations = [{
@@ -35,5 +36,9 @@ animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sbdp5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lc82c")
+max_polyphony = 2
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

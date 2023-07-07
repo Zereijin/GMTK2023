@@ -13,3 +13,6 @@ func _on_animated_sprite_2d_animation_finished():
 func ball_contact():
 	# Play bump animation once
 	$AnimatedSprite2D.play("bump")
+
+	# Play bump sound effect once
+	$AudioStreamPlayer2D.play()
