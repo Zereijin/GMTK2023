@@ -26,4 +26,4 @@ theme_override_constants/margin_right = 10
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_hpuib")
 theme_override_font_sizes/font_size = 34
-text = "123456789012345"
+text = "1234567890"

@@ -21,6 +21,9 @@ var animation:AnimationTypes = AnimationTypes.NONE: set = _set_animation
 @export
 var animation_speed:float = 1.0: set = _set_animation_speed
 
+@export
+var prefix:String = ""
+
 # Refers to the part of system that actually displays text
 @onready
 var display_text = $ScoreboardDisplay
@@ -39,7 +42,7 @@ var scroll_padding = 2
 
 func _set_score(new_score):
 	score = new_score
-	raw_text = str(score)
+	raw_text = prefix + str(score)
 	update_text()
 
 func _set_animation_speed( new_animation_speed ):
