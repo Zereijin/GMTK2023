@@ -21,6 +21,7 @@ func _on_animated_sprite_2d_animation_finished():
 func ball_contact(ball: Ball) -> void:
 	# Play bump animation once
 	$AnimatedSprite2D.play("bump")
+	$bouncerAnimatedSprite2D.play()
 
 	# Play bump sound effect once
 	# Randomize the the pitch up to a semitone higher or lower
