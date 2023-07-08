@@ -6,7 +6,7 @@ func go(scores: PackedInt64Array, my_score_pos: int) -> void:
 		var text := str(scores[i])
 		if i == my_score_pos:
 			text += " <<<"
-		$scores.get_node("score" + str(i)).text = text
+		$VBoxContainer/scores.get_node("score" + str(i)).text = text
 	visible = true
 
 func _on_ok_button_pressed() -> void:
