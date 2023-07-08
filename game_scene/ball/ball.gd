@@ -38,6 +38,9 @@ var drag_cooldown := 1.0
 @export_range(0.0, 60.0, 0.01)
 var drag_cooldown_buffer_time := 0.5
 
+## Whether the ball currently permits player control inputs.
+var sensitive := true
+
 ## The current drag state.
 var _drag_state := DragState.IDLE
 
@@ -56,33 +59,35 @@ var _bump_impulses := {
 }
 
 func _physics_process(delta: float) -> void:
-	# Handle bumps.
-	for action in _bump_impulses:
-		if Input.is_action_just_pressed(action):
-			if fuel_manager.use_bump():
-				apply_central_impulse(_bump_impulses[action])
-	# Handle drag.
-	match (_drag_state):
-		DragState.IDLE:
-			if Input.is_action_just_pressed("drag"):
-				if fuel_manager.use_drag(delta):
-					_drag_state = DragState.ACTIVE
-		DragState.ACTIVE:
-			if not Input.is_action_pressed("drag") or not fuel_manager.use_drag(delta):
-				_drag_state = DragState.COOLING_DOWN
-				_drag_cooldown_remaining = drag_cooldown
-		DragState.COOLING_DOWN, DragState.COOLING_DOWN_QUEUED:
-			if Input.is_action_just_pressed("drag") and _drag_cooldown_remaining < drag_cooldown_buffer_time:
-				_drag_state = DragState.COOLING_DOWN_QUEUED
-			_drag_cooldown_remaining -= delta
-			if _drag_cooldown_remaining <= 0:
-				if _drag_state == DragState.COOLING_DOWN_QUEUED and fuel_manager.use_drag(delta):
-					_drag_state = DragState.ACTIVE
-				else:
-					_drag_state = DragState.IDLE
-	if _drag_state == DragState.ACTIVE:
-		apply_force(linear_velocity * drag_factor)
-
+	if sensitive:
+		# Handle bumps.
+		for action in _bump_impulses:
+			if Input.is_action_just_pressed(action):
+				if fuel_manager.use_bump():
+					apply_central_impulse(_bump_impulses[action])
+		# Handle drag.
+		match (_drag_state):
+			DragState.IDLE:
+				if Input.is_action_just_pressed("drag"):
+					if fuel_manager.use_drag(delta):
+						_drag_state = DragState.ACTIVE
+			DragState.ACTIVE:
+				if not Input.is_action_pressed("drag") or not fuel_manager.use_drag(delta):
+					_drag_state = DragState.COOLING_DOWN
+					_drag_cooldown_remaining = drag_cooldown
+			DragState.COOLING_DOWN, DragState.COOLING_DOWN_QUEUED:
+				if Input.is_action_just_pressed("drag") and _drag_cooldown_remaining < drag_cooldown_buffer_time:
+					_drag_state = DragState.COOLING_DOWN_QUEUED
+				_drag_cooldown_remaining -= delta
+				if _drag_cooldown_remaining <= 0:
+					if _drag_state == DragState.COOLING_DOWN_QUEUED and fuel_manager.use_drag(delta):
+						_drag_state = DragState.ACTIVE
+					else:
+						_drag_state = DragState.IDLE
+		if _drag_state == DragState.ACTIVE:
+			apply_force(linear_velocity * drag_factor)
+	else:
+		_drag_state = DragState.IDLE
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("ball_collision_notifiable"):
