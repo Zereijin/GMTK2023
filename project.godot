@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerData="*res://game_scene/player_data/player_data.gd"
+PlayerData="*res://game_scene/player_data.gd"
 
 [display]
 
