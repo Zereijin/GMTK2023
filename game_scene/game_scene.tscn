@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://dmg85pdsmpox8"]
+[gd_scene load_steps=117 format=3 uid="uid://dmg85pdsmpox8"]
 
 [ext_resource type="PackedScene" uid="uid://c4go7s62rahph" path="res://game_scene/ball/ball.tscn" id="1_ugfsb"]
 [ext_resource type="Script" path="res://game_scene/game_scene.gd" id="1_vtrq5"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="6_fys0u"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="7_gam0c"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="8_c1nll"]
+[ext_resource type="Resource" uid="uid://cd24kd3ha51d5" path="res://textures/wall_edge_material.tres" id="8_trves"]
+[ext_resource type="Texture2D" uid="uid://da5ji2xpuxyaf" path="res://textures/wall_interior.png" id="9_mc2f3"]
 [ext_resource type="PackedScene" uid="uid://8f7qirule62d" path="res://game_scene/drain/drain.tscn" id="10_3yl1e"]
 [ext_resource type="Script" path="res://game_scene/fuel_manager/fuel_manager.gd" id="11_wdthn"]
 
@@ -63,9 +65,9 @@ point_in = Vector2(408, -8)
 point_out = Vector2(96, -104)
 properties = SubResource("Resource_x1ar1")
 
-[sub_resource type="Resource" id="Resource_obcy2"]
+[sub_resource type="Resource" id="Resource_flqiq"]
 script = ExtResource("5_jihvj")
-texture_idx = 0
+texture_idx = 14
 flip = false
 width = 1.0
 
@@ -74,7 +76,7 @@ script = ExtResource("6_fys0u")
 position = Vector2(1152, 2008)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_obcy2")
+properties = SubResource("Resource_flqiq")
 
 [sub_resource type="Resource" id="Resource_ipa2h"]
 script = ExtResource("5_jihvj")
@@ -134,16 +136,10 @@ Array[int]([0, 3]): 15
 _next_key = 8
 _material_overrides = {}
 
-[sub_resource type="Gradient" id="Gradient_4drhx"]
-offsets = PackedFloat32Array(0, 0.0326087)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qqrh1"]
-gradient = SubResource("Gradient_4drhx")
-
 [sub_resource type="Resource" id="Resource_fyh26"]
 script = ExtResource("8_c1nll")
-_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([])
-fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_qqrh1")])
+_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([ExtResource("8_trves")])
+fill_textures = Array[Texture2D]([ExtResource("9_mc2f3")])
 fill_texture_z_index = -10
 fill_texture_show_behind_parent = false
 fill_mesh_offset = 0.0
@@ -328,17 +324,10 @@ Array[int]([0, 7]): 15
 _next_key = 18
 _material_overrides = {}
 
-[sub_resource type="Gradient" id="Gradient_cpce4"]
-offsets = PackedFloat32Array(0, 0.967213, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.262295, 0.262295, 0.262295, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_sxcws"]
-gradient = SubResource("Gradient_cpce4")
-
 [sub_resource type="Resource" id="Resource_0lxs3"]
 script = ExtResource("8_c1nll")
-_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([null])
-fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_sxcws")])
+_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([ExtResource("8_trves")])
+fill_textures = Array[Texture2D]([ExtResource("9_mc2f3")])
 fill_texture_z_index = -10
 fill_texture_show_behind_parent = false
 fill_mesh_offset = 0.0
@@ -450,18 +439,13 @@ _point_order = Array[int]([0, 15, 12, 10, 9, 4, 2])
 _constraints = {
 Array[int]([2, 0]): 15
 }
-_next_key = 18
+_next_key = 19
 _material_overrides = {}
-
-[sub_resource type="Gradient" id="Gradient_iklx6"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gf0dt"]
-gradient = SubResource("Gradient_iklx6")
 
 [sub_resource type="Resource" id="Resource_o2x6q"]
 script = ExtResource("8_c1nll")
-_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([])
-fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_gf0dt")])
+_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([ExtResource("8_trves")])
+fill_textures = Array[Texture2D]([ExtResource("9_mc2f3")])
 fill_texture_z_index = -10
 fill_texture_show_behind_parent = false
 fill_mesh_offset = 0.0
@@ -493,9 +477,9 @@ point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
 properties = SubResource("Resource_ndnv7")
 
-[sub_resource type="Resource" id="Resource_hufbv"]
+[sub_resource type="Resource" id="Resource_ursr5"]
 script = ExtResource("5_jihvj")
-texture_idx = 0
+texture_idx = -2
 flip = false
 width = 1.0
 
@@ -504,7 +488,7 @@ script = ExtResource("6_fys0u")
 position = Vector2(912, 1624)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_hufbv")
+properties = SubResource("Resource_ursr5")
 
 [sub_resource type="Resource" id="Resource_03vcu"]
 script = ExtResource("5_jihvj")
@@ -576,15 +560,10 @@ Array[int]([8, 0]): 15
 _next_key = 17
 _material_overrides = {}
 
-[sub_resource type="Gradient" id="Gradient_prjtc"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_udmux"]
-gradient = SubResource("Gradient_prjtc")
-
 [sub_resource type="Resource" id="Resource_v8jqe"]
 script = ExtResource("8_c1nll")
-_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([])
-fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_udmux")])
+_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([ExtResource("8_trves")])
+fill_textures = Array[Texture2D]([ExtResource("9_mc2f3")])
 fill_texture_z_index = -10
 fill_texture_show_behind_parent = false
 fill_mesh_offset = 0.0
@@ -820,28 +799,28 @@ script = ExtResource("11_wdthn")
 [node name="walls" type="Node2D" parent="."]
 position = Vector2(-576, -1000)
 
-[node name="outer_outer_wall" type="StaticBody2D" parent="walls"]
+[node name="inner_outer_wall" type="StaticBody2D" parent="walls"]
 
-[node name="SS2D_Shape_Closed2" type="Node2D" parent="walls/outer_outer_wall"]
+[node name="SS2D_Shape_Closed2" type="Node2D" parent="walls/inner_outer_wall"]
 script = ExtResource("4_5o0n3")
 _points = SubResource("Resource_u8xyx")
 shape_material = SubResource("Resource_fyh26")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/outer_outer_wall"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/inner_outer_wall"]
 visible = false
 modulate = Color(1, 1, 1, 0.3)
 polygon = PackedVector2Array(623.717, 112.115, 633.41, 102.574, 643.593, 93.7827, 666, 78.0149, 690.656, 64.521, 717, 53.1243, 772.5, 35.9212, 828, 24.9994, 921, 16.3746, 960, 15.9985, 967.266, 17.0777, 986.625, 21.6242, 1014.42, 31.6088, 1030.34, 39.2555, 1047, 48.9995, 1063.94, 61.0874, 1080.7, 75.7651, 1096.83, 93.2788, 1111.88, 113.875, 1125.37, 137.798, 1136.86, 165.297, 1145.89, 196.615, 1152, 232, 1152.1, 2008.1, 767.606, 2008.08, 1055.93, 1887.95, 1056, 328, 1054.17, 318.391, 1051.1, 307.381, 1045.87, 293.125, 1037.98, 276.291, 1026.89, 257.547, 1012.07, 237.561, 992.999, 217.001, 969.146, 196.534, 939.984, 176.829, 904.986, 158.553, 863.625, 142.376, 815.373, 128.963, 759.703, 118.985, 696.088, 113.108)
 
-[node name="inner_outer_wall" type="StaticBody2D" parent="walls"]
+[node name="outer_outer_wall" type="StaticBody2D" parent="walls"]
 
-[node name="SS2D_Shape_Closed" type="Node2D" parent="walls/inner_outer_wall"]
+[node name="SS2D_Shape_Closed" type="Node2D" parent="walls/outer_outer_wall"]
 script = ExtResource("4_5o0n3")
 _points = SubResource("Resource_o2ok5")
 shape_material = SubResource("Resource_0lxs3")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/inner_outer_wall"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/outer_outer_wall"]
 visible = false
 modulate = Color(1, 1, 1, 0.3)
 polygon = PackedVector2Array(-0.103543, -176.104, 1344.1, -176.104, 1344.1, 2008.1, 1247.9, 2008.1, 1248, 328, 1250.25, 266.5, 1245.47, 203.125, 1239.39, 167.219, 1230, 130, 1216.68, 92.5941, 1198.78, 56.1253, 1187.92, 38.5939, 1175.68, 21.719, 1161.99, 5.64088, 1146.75, -9.49962, 1129.9, -23.5621, 1111.35, -36.4058, 1091.02, -47.8902, 1068.84, -57.8745, 1044.73, -66.2183, 1018.61, -72.7808, 990.388, -77.4215, 960, -79.999, 824.297, -74.0461, 768.627, -65.2515, 720.375, -53.3745, 679.014, -39.0131, 644.016, -22.765, 614.854, -5.22788, 591.001, 13.0006, 571.928, 31.3228, 557.11, 49.141, 546.018, 65.8577, 538.125, 80.8752, 532.905, 93.5958, 529.829, 103.422, 528.069, 112.084, 455.912, 113.108, 392.297, 118.985, 336.627, 128.963, 288.375, 142.376, 247.014, 158.553, 212.016, 176.829, 182.854, 196.534, 159.001, 217.001, 139.928, 237.561, 125.11, 257.547, 114.018, 276.291, 106.125, 293.125, 100.905, 307.381, 97.8286, 318.391, 96.0022, 328, 96.0698, 1887.95, 384.394, 2008.08, -0.103555, 2008.1)
@@ -855,6 +834,7 @@ shape_material = SubResource("Resource_o2x6q")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/left_gutter"]
+visible = false
 modulate = Color(1, 1, 1, 0.3)
 polygon = PackedVector2Array(384.064, 1863.96, 384.125, 1936.2, 191.936, 1840.04, 191.896, 1623.9, 240.104, 1623.9, 240.064, 1791.96)
 
@@ -880,7 +860,6 @@ shape_material = SubResource("Resource_sn44u")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/drain_walls"]
-visible = false
 modulate = Color(1, 1, 1, 0.3)
 polygon = PackedVector2Array(767.896, 2007.9, 1344.1, 2007.9, 1344.1, 3064.1, -0.103544, 3064.1, -0.103547, 2007.9, 384.104, 2007.9, 384.104, 2080.1, 168.104, 2080.1, 168.104, 2895.9, 983.896, 2895.9, 983.896, 2080.1, 767.896, 2080.1)
 
