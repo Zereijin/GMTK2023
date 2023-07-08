@@ -49,6 +49,14 @@ var relaunch_score := 50000
 @export_range(1, 1000000000, 1)
 var extra_ball_score := 10000000
 
+## The number of lowest scores to keep.
+@export_range(1, 100, 1)
+var low_score_count := 3
+
+## The value to report in a lowest score slot that has not been filled.
+@export_range(0, 0x7FFFFFFFFFFFFFFF, 1)
+var low_score_missing := 999999999999999
+
 ## The current score.
 var score := 0
 
@@ -105,6 +113,52 @@ func score_kickout_hole() -> void:
 ## Grants points for launching the same ball a second time.
 func score_relaunch() -> void:
 	_add_points(relaunch_score)
+
+## Reads the lowest scores.
+func read_lowest_scores() -> PackedInt64Array:
+	var conf := ConfigFile.new()
+	conf.load("user://scores.ini")
+	var ret := PackedInt64Array()
+	for i in range(low_score_count):
+		print(i)
+		var elt = conf.get_value("player" + str(i), "score")
+		print(elt)
+		print(elt is int)
+		if elt is int:
+			ret.append(elt)
+		else:
+			ret.append(low_score_missing)
+	ret.sort()
+	return ret
+
+## Writes the lowest scores.
+func write_lowest_scores(scores: PackedInt64Array) -> void:
+	assert(scores.size() == low_score_count)
+	var conf := ConfigFile.new()
+	for i in range(low_score_count):
+		conf.set_value("player" + str(i), "score", scores[i])
+	conf.save("user://scores.ini")
+
+## Checks whether a new score should appear in a low scores table and, if so, inserts it.
+##
+## Returns the position in the table, on success, or -1 if the score doesn’t make the cut.
+func insert_lowest_score(scores: PackedInt64Array, new_score: int) -> int:
+	for i in range(scores.size()):
+		if new_score < scores[i]:
+			scores.insert(i, new_score)
+			scores.resize(low_score_count)
+			return i
+	return -1
+
+## Runs the end-of-game score updating.
+##
+## Returns the lowest scores, plus the position of the current play within them or -1 if the current
+## play did not make the cut.
+func end_game() -> Array:
+	var scores := read_lowest_scores()
+	var pos := insert_lowest_score(scores, score)
+	write_lowest_scores(scores)
+	return [scores, pos]
 
 ## Tries to consume a quantity of fuel, returning true on success or false if not enough was
 ## available.
