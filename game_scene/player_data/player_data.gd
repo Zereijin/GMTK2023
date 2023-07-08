@@ -35,15 +35,15 @@ var bumper_score := 1000
 
 ## The number of points added for touching a pylon.
 @export_range(1, 1000000, 1)
-var pylon_score := 1000
+var pylon_score := 500
 
 ## The number of points added for launching the same ball a second time.
 @export_range(1, 1000000000, 1)
-var relaunch_score := 100000
+var relaunch_score := 50000
 
 ## The number of points needed to earn an extra ball.
 @export_range(1, 1000000000, 1)
-var extra_ball_score := 10000
+var extra_ball_score := 10000000
 
 ## The current score.
 var score := 0
