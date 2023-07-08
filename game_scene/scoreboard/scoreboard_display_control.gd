@@ -4,7 +4,7 @@ extends Label
 
 # Text to initially display in the display
 @export
-var raw_text = "0": set = _set_raw_text
+var raw_text: String = "0": set = _set_raw_text
 
 enum AnimationTypes {
 	# Default state where we don't do strange things with the display
@@ -65,7 +65,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func get_characters_max():
+func get_characters_max() -> int:
 	# Since we're looking at a monospaced font we can easily calculate number of
 	# chars we can allow on the display
 	return int(
