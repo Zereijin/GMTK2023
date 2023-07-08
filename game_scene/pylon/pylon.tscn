@@ -39,7 +39,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_sbdp5"]
 radius = 157.385
 
-[node name="pylon" type="StaticBody2D"]
+[node name="pylon" type="StaticBody2D" groups=["ball_collision_notifiable"]]
 script = ExtResource("1_0iuv5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -19,7 +19,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55yo0"]
 size = Vector2(41.625, 164)
 
-[node name="bumper" type="StaticBody2D"]
+[node name="bumper" type="StaticBody2D" groups=["ball_collision_notifiable"]]
 script = ExtResource("1_sj2aa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
