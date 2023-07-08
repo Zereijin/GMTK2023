@@ -1,11 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4go7s62rahph"]
+[gd_scene load_steps=11 format=3 uid="uid://c4go7s62rahph"]
 
 [ext_resource type="Script" path="res://game_scene/ball/ball.gd" id="1_trjlc"]
+[ext_resource type="Texture2D" uid="uid://l1qyhg0ulmrv" path="res://game_scene/ball/smoke_particle.png" id="2_bkir0"]
 [ext_resource type="Texture2D" uid="uid://4yrcihh6weol" path="res://game_scene/ball/ball.png" id="2_cqyau"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sn330"]
 friction = 0.2
 bounce = 0.5
+
+[sub_resource type="Gradient" id="Gradient_e2epy"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_imuhn"]
+gradient = SubResource("Gradient_e2epy")
+
+[sub_resource type="Curve" id="Curve_2kv1r"]
+_data = [Vector2(0, 0.505263), 0.0, 1.45614, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3hsc4"]
+curve = SubResource("Curve_2kv1r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n0k5y"]
+particle_flag_disable_z = true
+spread = 15.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_max = 20.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_3hsc4")
+color_ramp = SubResource("GradientTexture1D_imuhn")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihpjw"]
 radius = 30.0
@@ -19,6 +46,14 @@ contact_monitor = true
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_trjlc")
+
+[node name="smokeGPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_n0k5y")
+texture = ExtResource("2_bkir0")
+one_shot = true
+speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ihpjw")
