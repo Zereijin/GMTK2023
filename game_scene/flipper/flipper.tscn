@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxfdpiynejjox"]
+
+[ext_resource type="Texture2D" uid="uid://dgq2cu8ap0al6" path="res://game_scene/flipper/flipperL.png" id="1_5275i"]
+[ext_resource type="Script" path="res://game_scene/flipper/flipper.gd" id="1_s7ril"]
+[ext_resource type="AudioStream" uid="uid://lkbkapalspkk" path="res://game_scene/flipper/flipper_press.ogg" id="3_1umsy"]
+[ext_resource type="AudioStream" uid="uid://bntytqpbwcy1" path="res://game_scene/flipper/flipper_release.ogg" id="4_3wxmv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hp1po"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1voqg"]
+size = Vector2(300, 50)
+
+[sub_resource type="Animation" id="Animation_lwj1b"]
+resource_name = "fire"
+length = 0.32
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.02, 0.06),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.785398]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1umsy")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_6i5eu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3duxs"]
+resource_name = "release"
+length = 0.24
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.785398, 0.0]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_3wxmv")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1r2ri"]
+_data = {
+"RESET": SubResource("Animation_6i5eu"),
+"fire": SubResource("Animation_lwj1b"),
+"release": SubResource("Animation_3duxs")
+}
+
+[node name="flipper" type="Node2D"]
+script = ExtResource("1_s7ril")
+
+[node name="body" type="AnimatableBody2D" parent="."]
+position = Vector2(128, -2)
+physics_material_override = SubResource("PhysicsMaterial_hp1po")
+
+[node name="Sprite2D" type="Sprite2D" parent="body"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_5275i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="body"]
+polygon = PackedVector2Array(164, -31, 121, -11, 74, 6, -2, 30, -86, 48, -126, 54, -159, 53, -173, 47, -172, -28, -156, -46, -133, -57, 158, -55, 171, -51, 174, -42)
+
+[node name="trigger" type="Area2D" parent="."]
+position = Vector2(128, -2)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trigger"]
+position = Vector2(42, -76)
+shape = SubResource("RectangleShape2D_1voqg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
+libraries = {
+"": SubResource("AnimationLibrary_1r2ri")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+area_mask = 0
