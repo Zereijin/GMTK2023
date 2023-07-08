@@ -16,6 +16,7 @@ func ball_contact():
 
 	# Play bump sound effect once
 	# Randomize the the pitch up to a semitone higher or lower
+	# Use same sound effect as flipper press, but with lowered pitch
 	var rng = RandomNumberGenerator.new()
-	$AudioStreamPlayer2D.pitch_scale = rng.randf_range(0.943874, 1.059463)
+	$AudioStreamPlayer2D.pitch_scale = rng.randf_range(0.943874, 1.059463)*.8
 	$AudioStreamPlayer2D.play()

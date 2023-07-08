@@ -31,5 +31,6 @@ shape = SubResource("RectangleShape2D_55yo0")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_6t6cr")
+max_polyphony = 2
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
