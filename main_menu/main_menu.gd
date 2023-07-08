@@ -34,4 +34,5 @@ func _on_close_controls_button_pressed():
 	mainMenuFocusButton.grab_focus()
 
 func _on_quit_button_pressed():
+	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
