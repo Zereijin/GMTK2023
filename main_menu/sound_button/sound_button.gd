@@ -4,7 +4,7 @@ extends CheckBox
 
 func _ready():
 	set_pressed_no_signal(not AudioServer.is_bus_mute(_master_audio_bus_index))
-	
+
 func _input(event):
 	if event.is_action_pressed("ui_mute"):
 		set_pressed(not is_pressed())
