@@ -30,8 +30,13 @@ var score:int = 0: set = _set_score
 # What character are we on with the scrolling?
 var scroll_offset = 0
 
-# extra spaces to add so that it doesn't wrap loop
-var scroll_padding = 2
+## The raw text, padded with spaces on both sides so it can be used for scrolling.
+var _padded_text: String:
+	get:
+		var text := raw_text
+		var width := get_characters_max()
+		var padding : = " ".repeat(width)
+		return padding + text + padding
 
 func _set_score(new_score):
 	score = new_score
@@ -77,7 +82,7 @@ func get_characters_max() -> int:
 func _on_animation_timer():
 	if animation == AnimationTypes.SCROLL:
 		# Then move the offset and pull out the text to rotate
-		scroll_offset = ( scroll_offset + 1 ) % get_characters_max()
+		scroll_offset = ( scroll_offset + 1 ) % (raw_text.length() + get_characters_max())
 		update_text()
 
 func update_text():
@@ -87,21 +92,8 @@ func update_text():
 
 	# SCROLL: scrolls the around around the display
 	if animation == AnimationTypes.SCROLL:
-		# If the number of characters is less than the number of display chars
-		# let's just left pad with spaces. If we are the same length or beyond
-		# we'll just pad with extra spaces
-		var base_string = ""
-		var required_padding = max_length - len(raw_text)
-		if required_padding > scroll_padding:
-			base_string = " ".repeat(required_padding) + raw_text
-		else:
-			base_string = raw_text + " ".repeat(scroll_padding)
-
-		# Then move the offset and pull out the text to rotate
-		var scrolled_text = base_string.repeat(2).substr(scroll_offset, max_length)
-
-		self.text = scrolled_text
-
+		# Pull out the text to rotate
+		self.text = _padded_text.substr(scroll_offset, max_length)
 	# None: no special animation required
 	else:
 		self.text = raw_text.substr(0, max_length)
