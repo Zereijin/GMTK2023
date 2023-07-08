@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cref8sid3n7if"
+path="res://.godot/imported/ball gain.ogg-f4f398bd8a117672253276e683e1fc73.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_scene/ball gain.ogg"
+dest_files=["res://.godot/imported/ball gain.ogg-f4f398bd8a117672253276e683e1fc73.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
