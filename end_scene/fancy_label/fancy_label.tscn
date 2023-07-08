@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm3bvou363o8s"]
+
+[ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="1_wifnn"]
+
+[node name="fancy_label" type="Label"]
+theme = ExtResource("1_wifnn")

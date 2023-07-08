@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbmike0vj57v7"]
+[gd_scene load_steps=4 format=3 uid="uid://bbmike0vj57v7"]
 
 [ext_resource type="Script" path="res://end_scene/end_scene.gd" id="1_ccbdf"]
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="2_ga78b"]
+[ext_resource type="PackedScene" uid="uid://dm3bvou363o8s" path="res://end_scene/fancy_label/fancy_label.tscn" id="3_beb64"]
 
 [node name="end_scene" type="CenterContainer"]
 process_mode = 3
@@ -40,17 +41,14 @@ theme = ExtResource("2_ga78b")
 theme_type_variation = &"HeaderMedium"
 text = "High Scores"
 
-[node name="score0" type="Label" parent="VBoxContainer/scores"]
+[node name="score0" parent="VBoxContainer/scores" instance=ExtResource("3_beb64")]
 layout_mode = 2
-theme = ExtResource("2_ga78b")
 
-[node name="score1" type="Label" parent="VBoxContainer/scores"]
+[node name="score1" parent="VBoxContainer/scores" instance=ExtResource("3_beb64")]
 layout_mode = 2
-theme = ExtResource("2_ga78b")
 
-[node name="score2" type="Label" parent="VBoxContainer/scores"]
+[node name="score2" parent="VBoxContainer/scores" instance=ExtResource("3_beb64")]
 layout_mode = 2
-theme = ExtResource("2_ga78b")
 
 [node name="buttons" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
