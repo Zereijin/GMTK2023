@@ -3,10 +3,9 @@ extends CenterContainer
 
 func go(scores: PackedInt64Array, my_score_pos: int) -> void:
 	for i in range(scores.size()):
-		var text := str(scores[i])
-		if i == my_score_pos:
-			text += " <<<"
-		$VBoxContainer/scores.get_node("score" + str(i)).text = text
+		var label: FancyLabel = $VBoxContainer/scores.get_node("score" + str(i))
+		label.text = str(scores[i])
+		label.fancy = i == my_score_pos
 	visible = true
 
 func _try_again() -> void:
