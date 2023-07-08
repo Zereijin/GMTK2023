@@ -4,3 +4,6 @@
 
 [node name="player_data" type="Node"]
 script = ExtResource("1_n56wx")
+kickout_hole_score = 2500
+relaunch_score = 10000
+extra_ball_score = 500000
