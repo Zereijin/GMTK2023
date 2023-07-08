@@ -7,4 +7,5 @@
 script = ExtResource("1_icb5q")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_ppm6p")
