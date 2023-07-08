@@ -1,3 +1,4 @@
+class_name IntegerDisplay
 extends PanelContainer
 
 ## The name of the PlayerData property to show in this display.
