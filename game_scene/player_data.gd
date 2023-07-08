@@ -50,16 +50,6 @@ func _physics_process(delta: float) -> void:
 	if fuel_current != old:
 		fuel_changed.emit(fuel_current)
 
-## Tries to consume a quantity of fuel, returning true on success or false if not enough was
-## available.
-func _use_fuel(amount: float) -> bool:
-	if fuel_current >= amount:
-		fuel_current -= amount
-		fuel_changed.emit(fuel_current)
-		return true
-	else:
-		return false
-
 ## Tries to use fuel for a bump, returning true on success or false if not enough was available.
 func use_bump() -> bool:
 	return _use_fuel(bump_usage)
@@ -85,3 +75,13 @@ func use_ball() -> bool:
 func score_pylon() -> void:
 	score += pylon_score
 	score_changed.emit(score)
+
+## Tries to consume a quantity of fuel, returning true on success or false if not enough was
+## available.
+func _use_fuel(amount: float) -> bool:
+	if fuel_current >= amount:
+		fuel_current -= amount
+		fuel_changed.emit(fuel_current)
+		return true
+	else:
+		return false
