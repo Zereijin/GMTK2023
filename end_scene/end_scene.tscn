@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbmike0vj57v7"]
+
+[ext_resource type="Script" path="res://end_scene/end_scene.gd" id="1_ccbdf"]
+
+[node name="end_scene" type="VBoxContainer"]
+process_mode = 3
+script = ExtResource("1_ccbdf")
+
+[node name="scores" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="score0" type="Label" parent="scores"]
+layout_mode = 2
+
+[node name="score1" type="Label" parent="scores"]
+layout_mode = 2
+
+[node name="score2" type="Label" parent="scores"]
+layout_mode = 2
+
+[node name="buttons" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ok_button" type="Button" parent="buttons"]
+layout_mode = 2
+text = "OK"
+
+[connection signal="pressed" from="buttons/ok_button" to="." method="_on_ok_button_pressed"]
