@@ -31,3 +31,6 @@ func ball_contact(ball: Ball) -> void:
 
 	# Push the ball.
 	ball.apply_impulse(_impulse_vector)
+
+	# Give some points.
+	PlayerData.score_bumper()

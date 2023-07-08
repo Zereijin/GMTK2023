@@ -26,3 +26,6 @@ func ball_contact(ball: Ball) -> void:
 
 	# Push the ball.
 	ball.apply_impulse(global_position.direction_to(ball.global_position) * impulse)
+
+	# Give some points.
+	PlayerData.score_pylon()
