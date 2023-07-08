@@ -3,10 +3,6 @@ extends Area2D
 ## Emitted when the game is over.
 signal game_over()
 
-## The fuel manager.
-@export
-var fuel_manager: FuelManager
-
 ## The ball.
 @export
 var ball: Ball
@@ -26,7 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 	ball.sleeping = true
 	_audio.play()
 	await _audio.finished
-	if fuel_manager.use_ball():
+	if PlayerData.use_ball():
 		ball.position = _initial_ball_position
 		ball.linear_velocity = Vector2.ZERO
 		await get_tree().physics_frame

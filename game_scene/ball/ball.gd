@@ -15,10 +15,6 @@ enum DragState {
 	COOLING_DOWN_QUEUED,
 }
 
-## The fuel manager.
-@export
-var fuel_manager : FuelManager
-
 ## The magnitude of impulse to apply each time the bump action is activated. Should be positive.
 ## Higher means more bump.
 @export
@@ -63,16 +59,16 @@ func _physics_process(delta: float) -> void:
 		# Handle bumps.
 		for action in _bump_impulses:
 			if Input.is_action_just_pressed(action):
-				if fuel_manager.use_bump():
+				if PlayerData.use_bump():
 					apply_central_impulse(_bump_impulses[action])
 		# Handle drag.
 		match (_drag_state):
 			DragState.IDLE:
 				if Input.is_action_just_pressed("drag"):
-					if fuel_manager.use_drag(delta):
+					if PlayerData.use_drag(delta):
 						_drag_state = DragState.ACTIVE
 			DragState.ACTIVE:
-				if not Input.is_action_pressed("drag") or not fuel_manager.use_drag(delta):
+				if not Input.is_action_pressed("drag") or not PlayerData.use_drag(delta):
 					_drag_state = DragState.COOLING_DOWN
 					_drag_cooldown_remaining = drag_cooldown
 			DragState.COOLING_DOWN, DragState.COOLING_DOWN_QUEUED:
@@ -80,7 +76,7 @@ func _physics_process(delta: float) -> void:
 					_drag_state = DragState.COOLING_DOWN_QUEUED
 				_drag_cooldown_remaining -= delta
 				if _drag_cooldown_remaining <= 0:
-					if _drag_state == DragState.COOLING_DOWN_QUEUED and fuel_manager.use_drag(delta):
+					if _drag_state == DragState.COOLING_DOWN_QUEUED and PlayerData.use_drag(delta):
 						_drag_state = DragState.ACTIVE
 					else:
 						_drag_state = DragState.IDLE
