@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends PanelContainer
 
 ## The name of the PlayerData property to show in this display.
 @export
@@ -10,7 +10,7 @@ var ramp_time := 0.0
 
 ## The underlying display.
 @onready
-var _display := $ScoreboardDisplay
+var _display := $MarginContainer/ScoreboardDisplay
 
 ## The last displayed value.
 var _last_displayed := 0

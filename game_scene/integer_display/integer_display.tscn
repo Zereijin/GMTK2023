@@ -1,11 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://bthsfh1lr76di"]
+[gd_scene load_steps=5 format=3 uid="uid://bthsfh1lr76di"]
 
 [ext_resource type="Script" path="res://game_scene/integer_display/integer_display.gd" id="1_nhqnf"]
 [ext_resource type="PackedScene" uid="uid://dy0t5e08lbfsi" path="res://game_scene/scoreboard/scoreboard_display_control.tscn" id="2_ish2a"]
+[ext_resource type="FontFile" uid="uid://c2jbtbfecrr66" path="res://game_scene/scoreboard/7segment.ttf" id="3_hpuib"]
 
-[node name="integer_display" type="HBoxContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka2x5"]
+bg_color = Color(0.101961, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.207843, 0, 0.235294, 1)
+
+[node name="integer_display" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_ka2x5")
 script = ExtResource("1_nhqnf")
 
-[node name="ScoreboardDisplay" parent="." instance=ExtResource("2_ish2a")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 10
+
+[node name="ScoreboardDisplay" parent="MarginContainer" instance=ExtResource("2_ish2a")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hpuib")
+theme_override_font_sizes/font_size = 34
+text = "123456789012345"
