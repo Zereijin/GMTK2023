@@ -33,6 +33,9 @@ func _on_body_entered(body: Node2D) -> void:
 	# Play capture animation
 	$AnimatedSprite2D.play("captured")
 
+	# Hide ball sprite in favour of captured ball baked into hole sprite.
+	ball.visible = false
+
 	# Give points.
 	PlayerData.score_kickout_hole()
 
@@ -45,6 +48,9 @@ func _on_body_entered(body: Node2D) -> void:
 
 	# Play idle animation
 	$AnimatedSprite2D.play("idle")
+
+	# Show ball sprite.
+	ball.visible = true
 
 	# Wake and make sensitive
 	ball.sensitive = true
