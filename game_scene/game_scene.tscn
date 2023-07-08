@@ -1336,11 +1336,11 @@ polygon = PackedVector2Array(832.933, 707.763, 836.94, 700.601, 844.63, 692.963,
 [node name="pylons" type="Node2D" parent="."]
 
 [node name="pylon" parent="pylons" instance=ExtResource("11_1rv8e")]
-position = Vector2(-120, -624)
+position = Vector2(-96, -576)
 scale = Vector2(0.15, 0.15)
 
 [node name="pylon3" parent="pylons" instance=ExtResource("11_1rv8e")]
-position = Vector2(-4.54747e-13, -408)
+position = Vector2(0, -456)
 scale = Vector2(0.15, 0.15)
 
 [node name="pylon4" parent="pylons" instance=ExtResource("11_1rv8e")]
@@ -1352,7 +1352,7 @@ position = Vector2(0, 1032)
 scale = Vector2(0.3, 0.3)
 
 [node name="pylon2" parent="pylons" instance=ExtResource("11_1rv8e")]
-position = Vector2(120, -624)
+position = Vector2(96, -576)
 scale = Vector2(0.15, 0.15)
 
 [node name="launch_zone_pylons" type="Node2D" parent="pylons"]
@@ -1418,7 +1418,7 @@ scale = Vector2(-0.2, 0.2)
 [node name="holes" type="Node2D" parent="."]
 
 [node name="kickout_hole" parent="holes" instance=ExtResource("21_wcehi")]
-position = Vector2(7.62939e-06, -528)
+position = Vector2(4.54747e-13, 71.9999)
 scale = Vector2(0.35, 0.35)
 
 [node name="kickout_hole2" parent="holes" instance=ExtResource("21_wcehi")]
