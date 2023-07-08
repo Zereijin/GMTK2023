@@ -7,6 +7,9 @@ signal changed(new_value: float)
 ## Emitted when the number of extra balls available changes.
 signal extra_balls_changed(new_value: int)
 
+## Emitted when the score changes.
+signal score_changed(new_value: int)
+
 ## The maximum fuel the player can have.
 @export
 var maximum := 100.0
@@ -26,6 +29,13 @@ var drag_usage := 25.0
 ## The number of balls played per game.
 @export_range(1, 100, 1)
 var total_balls := 3
+
+## The number of points added for touching a pylon or bumper.
+@export_range(1, 1000000, 1)
+var pylon_score := 1000
+
+## The current score.
+var score := 0
 
 ## The current balance of fuel.
 @onready
@@ -71,3 +81,8 @@ func use_ball() -> bool:
 		return true
 	else:
 		return false
+
+## Grants points for touching a pylon or bumper.
+func score_pylon() -> void:
+	score += pylon_score
+	score_changed.emit(score)
