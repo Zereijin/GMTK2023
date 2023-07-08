@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c20pvn8uj1co5"]
+
+[ext_resource type="Texture2D" uid="uid://bbmpfj34p0b0l" path="res://main_menu/text_logo.png" id="1_0l3en"]
+[ext_resource type="Script" path="res://game_scene/matrix_display/matrixify_demo.gd" id="1_61ime"]
+[ext_resource type="PackedScene" uid="uid://3dmsjqgp2yq5" path="res://game_scene/matrix_display/matrixify.tscn" id="2_mc8rx"]
+
+[node name="matrixify_demo" type="Node2D"]
+script = ExtResource("1_61ime")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(543, 180)
+scale = Vector2(0.567308, 0.567308)
+texture = ExtResource("1_0l3en")
+
+[node name="Matrixify" parent="." instance=ExtResource("2_mc8rx")]
+z_index = 1
+position = Vector2(776, 203)
+scale = Vector2(547, 328)

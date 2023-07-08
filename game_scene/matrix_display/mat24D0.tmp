@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk6nbbkittimm"]
+
+[ext_resource type="PackedScene" uid="uid://dgekdsr04vvop" path="res://game_scene/matrix_display/animations/rotate_object/rotate_object.tscn" id="1_2y5yg"]
+[ext_resource type="Script" path="res://game_scene/matrix_display/matrix_display.gd" id="1_3h2js"]
+[ext_resource type="FontFile" uid="uid://bhsdig6tdckl4" path="res://fonts/keypunch029/Keypunch029-Bold.otf" id="2_ss8qx"]
+[ext_resource type="PackedScene" uid="uid://3dmsjqgp2yq5" path="res://game_scene/matrix_display/matrixify.tscn" id="3_cjvs7"]
+
+[sub_resource type="Theme" id="Theme_bhbxd"]
+default_font = ExtResource("2_ss8qx")
+default_font_size = 75
+
+[sub_resource type="Theme" id="Theme_p2hom"]
+default_font = ExtResource("2_ss8qx")
+default_font_size = 75
+
+[node name="MatrixDisplay" type="SubViewportContainer"]
+offset_right = 1000.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+script = ExtResource("1_3h2js")
+
+[node name="Graphics" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="StatusBar" type="HBoxContainer" parent="Graphics"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScoreLabel" type="Label" parent="Graphics/StatusBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_bhbxd")
+text = "Score: 10000"
+
+[node name="BallsLabel" type="Label" parent="Graphics/StatusBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_p2hom")
+text = "Balls: 3"
+horizontal_alignment = 2
+
+[node name="MatrixSceneViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(1000, 200)
+render_target_update_mode = 4
+
+[node name="Animation" parent="MatrixSceneViewport" instance=ExtResource("1_2y5yg")]
+
+[node name="Matrixify" parent="." instance=ExtResource("3_cjvs7")]
+z_index = 1
+position = Vector2(314.875, 106)
+scale = Vector2(646.25, 279.5)

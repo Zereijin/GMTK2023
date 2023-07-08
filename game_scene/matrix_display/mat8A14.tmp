@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk6nbbkittimm"]
+
+[ext_resource type="PackedScene" uid="uid://dgekdsr04vvop" path="res://game_scene/matrix_display/animations/rotate_object/rotate_object.tscn" id="1_2y5yg"]
+[ext_resource type="Script" path="res://game_scene/matrix_display/matrix_display.gd" id="1_3h2js"]
+[ext_resource type="Shader" path="res://game_scene/matrix_display/matrix_display.gdshader" id="2_url0j"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_phhmk"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ue5jq"]
+resource_local_to_scene = true
+shader = ExtResource("2_url0j")
+shader_parameter/color = Color(0.89, 0.8, 0, 1)
+shader_parameter/resolution = Vector2(80, 80)
+shader_parameter/pallette_size = 8.0
+shader_parameter/source = SubResource("ViewportTexture_phhmk")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j41eb"]
+size = Vector2(512, 512)
+orientation = 2
+
+[node name="MatrixDisplay" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+script = ExtResource("1_3h2js")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="Animation" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_2y5yg")]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_ue5jq")
+position = Vector2(256, 256)
+mesh = SubResource("PlaneMesh_j41eb")
