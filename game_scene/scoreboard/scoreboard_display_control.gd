@@ -48,7 +48,7 @@ func _set_score(new_score):
 
 func _set_animation_speed( new_animation_speed ):
 	animation_speed = new_animation_speed
-	animation_timer.set_wait_time(new_animation_speed)
+	$AnimationTimer.set_wait_time(new_animation_speed)
 
 func _set_raw_text( new_raw_text ):
 	raw_text = new_raw_text
