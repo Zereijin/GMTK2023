@@ -9,6 +9,11 @@ func go(scores: PackedInt64Array, my_score_pos: int) -> void:
 		$VBoxContainer/scores.get_node("score" + str(i)).text = text
 	visible = true
 
-func _on_ok_button_pressed() -> void:
-	print("OK pressed")
+func _try_again() -> void:
+	get_tree().change_scene_to_file("res://game_scene/game_scene.tscn")
+
+func _main_menu() -> void:
 	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
+
+func _exit() -> void:
+	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
