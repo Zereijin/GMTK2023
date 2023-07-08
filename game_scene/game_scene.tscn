@@ -1378,11 +1378,15 @@ position = Vector2(240, -936)
 scale = Vector2(0.1, 0.1)
 
 [node name="pylon6" parent="pylons" instance=ExtResource("11_1rv8e")]
-position = Vector2(-144, 144)
+position = Vector2(-120, 96)
+scale = Vector2(0.15, 0.15)
+
+[node name="pylon17" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(0, 192)
 scale = Vector2(0.15, 0.15)
 
 [node name="pylon7" parent="pylons" instance=ExtResource("11_1rv8e")]
-position = Vector2(144, 144)
+position = Vector2(120, 96)
 scale = Vector2(0.15, 0.15)
 
 [node name="pylon8" parent="pylons" instance=ExtResource("11_1rv8e")]
@@ -1392,6 +1396,34 @@ scale = Vector2(0.15, 0.15)
 [node name="pylon9" parent="pylons" instance=ExtResource("11_1rv8e")]
 position = Vector2(-72, -24)
 scale = Vector2(0.15, 0.15)
+
+[node name="pylon10" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(216, 480)
+scale = Vector2(0.1, 0.1)
+
+[node name="pylon12" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(-1.90735e-06, 768)
+scale = Vector2(0.1, 0.1)
+
+[node name="pylon13" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(-144, 576)
+scale = Vector2(0.1, 0.1)
+
+[node name="pylon14" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(144, 576)
+scale = Vector2(0.1, 0.1)
+
+[node name="pylon15" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(-336, 576)
+scale = Vector2(0.1, 0.1)
+
+[node name="pylon16" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(336, 576)
+scale = Vector2(0.1, 0.1)
+
+[node name="pylon11" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(-216, 480)
+scale = Vector2(0.1, 0.1)
 
 [node name="bumpers" type="Node2D" parent="."]
 
@@ -1415,6 +1447,16 @@ position = Vector2(432, -384)
 rotation = -0.349066
 scale = Vector2(-0.2, 0.2)
 
+[node name="bumper5" parent="bumpers" instance=ExtResource("19_rjsla")]
+position = Vector2(-264, -96)
+rotation = 2.35619
+scale = Vector2(0.2, 0.2)
+
+[node name="bumper6" parent="bumpers" instance=ExtResource("19_rjsla")]
+position = Vector2(264, -96)
+rotation = -2.35619
+scale = Vector2(-0.2, 0.2)
+
 [node name="holes" type="Node2D" parent="."]
 
 [node name="kickout_hole" parent="holes" instance=ExtResource("21_wcehi")]
@@ -1422,7 +1464,7 @@ position = Vector2(4.54747e-13, 71.9999)
 scale = Vector2(0.35, 0.35)
 
 [node name="kickout_hole2" parent="holes" instance=ExtResource("21_wcehi")]
-position = Vector2(288, 576)
+position = Vector2(264, 576)
 scale = Vector2(0.35, 0.35)
 
 [node name="kickout_hole3" parent="holes" instance=ExtResource("21_wcehi")]
@@ -1430,7 +1472,7 @@ position = Vector2(-264, 576)
 scale = Vector2(0.35, 0.35)
 
 [node name="kickout_hole4" parent="holes" instance=ExtResource("21_wcehi")]
-position = Vector2(120, 480)
+position = Vector2(96, 480)
 scale = Vector2(0.35, 0.35)
 
 [node name="kickout_hole5" parent="holes" instance=ExtResource("21_wcehi")]
@@ -1447,7 +1489,7 @@ rotation = 0.349066
 scale = Vector2(0.5, 0.5)
 
 [node name="main_left_flipper4" parent="flippers" instance=ExtResource("4_i2xwj")]
-position = Vector2(71.9999, 1504)
+position = Vector2(71.9999, 1456)
 rotation = 1.0472
 scale = Vector2(0.5, 0.5)
 
@@ -1467,7 +1509,7 @@ rotation = -0.349066
 scale = Vector2(-0.5, 0.5)
 
 [node name="main_right_flipper4" parent="flippers" instance=ExtResource("4_i2xwj")]
-position = Vector2(1080, 1504)
+position = Vector2(1080, 1456)
 rotation = -1.0472
 scale = Vector2(-0.5, 0.5)
 
