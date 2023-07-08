@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cr80xtmxct16f"]
 
 [ext_resource type="Script" path="res://game_scene/launcher/launcher.gd" id="1_ye401"]
-[ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="2_8y6c0"]
+[ext_resource type="Texture2D" uid="uid://wn2i7uatol4j" path="res://game_scene/launcher/launcher.png" id="2_nod1h"]
 [ext_resource type="AudioStream" uid="uid://bpt8ag6st648q" path="res://game_scene/launcher/launch.ogg" id="3_vcpun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x653f"]
@@ -18,8 +18,9 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_x653f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 54)
-texture = ExtResource("2_8y6c0")
+position = Vector2(0, 63)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nod1h")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_vcpun")
