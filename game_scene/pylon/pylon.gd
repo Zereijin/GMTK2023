@@ -10,7 +10,7 @@ func _on_animated_sprite_2d_animation_finished():
 	# Otherwise, loop idle animation
 
 # Event on ball contact
-func ball_contact() -> void:
+func ball_contact(ball: Ball) -> void:
 	# Play bump animation once
 	$AnimatedSprite2D.play("bump")
 
