@@ -105,6 +105,3 @@ func update_text():
 	# None: no special animation required
 	else:
 		self.text = raw_text.substr(0, max_length)
-
-
-
