@@ -1494,6 +1494,7 @@ layout_mode = 2
 property = "extra_balls"
 
 [node name="end_scene" parent="hud" instance=ExtResource("18_rksle")]
+visible = false
 offset_left = 548.0
 offset_top = 324.0
 offset_right = 579.0
