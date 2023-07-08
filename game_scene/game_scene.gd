@@ -35,6 +35,7 @@ func _on_game_over() -> void:
 
 func _on_extra_ball_earned() -> void:
 	scoreboard.enqueue_message(extra_ball_message)
+	$extra_ball_sound.play()
 
 func _on_drained() -> void:
 	scoreboard.override_message(drain_message)

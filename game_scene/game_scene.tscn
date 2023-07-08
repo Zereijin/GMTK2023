@@ -1,4 +1,4 @@
-[gd_scene load_steps=179 format=3 uid="uid://dmg85pdsmpox8"]
+[gd_scene load_steps=180 format=3 uid="uid://dmg85pdsmpox8"]
 
 [ext_resource type="PackedScene" uid="uid://c4go7s62rahph" path="res://game_scene/ball/ball.tscn" id="1_ugfsb"]
 [ext_resource type="Script" path="res://game_scene/game_scene.gd" id="1_vtrq5"]
@@ -19,6 +19,7 @@
 [ext_resource type="FontFile" uid="uid://dhyodwt8a8awi" path="res://fonts/keypunch029/Keypunch029-Bold.otf" id="17_dd7r4"]
 [ext_resource type="PackedScene" uid="uid://bbmike0vj57v7" path="res://end_scene/end_scene.tscn" id="19_5wpqy"]
 [ext_resource type="PackedScene" uid="uid://bnbynmc7vcs5n" path="res://game_scene/bumper/bumper.tscn" id="19_rjsla"]
+[ext_resource type="AudioStream" uid="uid://cref8sid3n7if" path="res://game_scene/ball gain.ogg" id="21_7ru0g"]
 [ext_resource type="PackedScene" uid="uid://dxl51m68b0pox" path="res://game_scene/kickout_hole/kickout_hole.tscn" id="21_wcehi"]
 
 [sub_resource type="Resource" id="Resource_4hnct"]
@@ -1603,6 +1604,9 @@ property = "extra_balls"
 
 [node name="end_scene" parent="hud" instance=ExtResource("19_5wpqy")]
 visible = false
+
+[node name="extra_ball_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_7ru0g")
 
 [connection signal="relaunched" from="launcher" to="." method="_on_relaunched"]
 [connection signal="drained" from="drain" to="." method="_on_drained"]
