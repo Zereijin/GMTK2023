@@ -43,6 +43,13 @@ func ball_contact(ball: Ball) -> void:
 
 	# Push the ball.
 	ball.apply_impulse(global_position.direction_to(ball.global_position) * impulse)
+	
+	# Emit particles
+	var collision_direction = global_position.direction_to(ball.global_position)
+	var circle_collision_shape := $CollisionShape2D.shape as CircleShape2D
+	$GPUParticles2D.global_position = global_position + (collision_direction * scale).rotated(rotation) * circle_collision_shape.radius
+	$GPUParticles2D.process_material.direction = Vector3(collision_direction.x, collision_direction.y, 0.0)
+	$GPUParticles2D.emitting = true
 
 	# Give some points.
 	PlayerData.score_pylon()
