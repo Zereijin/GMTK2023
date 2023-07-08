@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bthsfh1lr76di"]
+
+[ext_resource type="Script" path="res://game_scene/integer_display/integer_display.gd" id="1_nhqnf"]
+[ext_resource type="PackedScene" uid="uid://dy0t5e08lbfsi" path="res://game_scene/scoreboard/scoreboard_display_control.tscn" id="2_ish2a"]
+
+[node name="integer_display" type="HBoxContainer"]
+script = ExtResource("1_nhqnf")
+
+[node name="ScoreboardDisplay" parent="." instance=ExtResource("2_ish2a")]
+layout_mode = 2
+size_flags_horizontal = 3
