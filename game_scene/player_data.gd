@@ -29,7 +29,11 @@ var drag_usage := 25.0
 @export_range(1, 100, 1)
 var total_balls := 3
 
-## The number of points added for touching a pylon or bumper.
+## The number of points added for touching a bumper.
+@export_range(1, 1000000, 1)
+var bumper_score := 1000
+
+## The number of points added for touching a pylon.
 @export_range(1, 1000000, 1)
 var pylon_score := 1000
 
@@ -71,10 +75,13 @@ func use_ball() -> bool:
 	else:
 		return false
 
-## Grants points for touching a pylon or bumper.
+## Grants points for touching a bumper.
+func score_bumper() -> void:
+	_add_points(bumper_score)
+
+## Grants points for touching a pylon.
 func score_pylon() -> void:
-	score += pylon_score
-	score_changed.emit(score)
+	_add_points(pylon_score)
 
 ## Tries to consume a quantity of fuel, returning true on success or false if not enough was
 ## available.
@@ -85,3 +92,8 @@ func _use_fuel(amount: float) -> bool:
 		return true
 	else:
 		return false
+
+## Adds some points to the score.
+func _add_points(amount: int) -> void:
+	score += amount
+	score_changed.emit(score)
