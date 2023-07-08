@@ -4,6 +4,7 @@ extends Control
 var mainMenuFocusButton : Button
 
 func _ready():
+	randomize()
 	mainMenuFocusButton = $MainMenuButtonContainer/PlayButton
 	mainMenuFocusButton.grab_focus()
 
