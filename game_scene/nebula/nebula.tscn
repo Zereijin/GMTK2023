@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://cj3fkuhefwftt"]
+
+[ext_resource type="Shader" path="res://game_scene/nebula/nebula.gdshader" id="1_vkjsu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jqnmn"]
+noise_type = 3
+frequency = 0.0178
+fractal_type = 2
+fractal_octaves = 3
+fractal_lacunarity = 1.811
+fractal_gain = 0.437
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ggp4m"]
+seamless = true
+noise = SubResource("FastNoiseLite_jqnmn")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i3tub"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ytr4r"]
+seamless = true
+noise = SubResource("FastNoiseLite_i3tub")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oslvi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h4qt3"]
+seamless = true
+noise = SubResource("FastNoiseLite_oslvi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vcv8h"]
+shader = ExtResource("1_vkjsu")
+shader_parameter/noise1 = SubResource("NoiseTexture2D_ggp4m")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_ytr4r")
+shader_parameter/noise3 = SubResource("NoiseTexture2D_h4qt3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0syq1"]
+size = Vector2(512, 512)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7ktr0"]
+size = Vector2(512, 512)
+orientation = 2
+
+[node name="nebula" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_vcv8h")
+mesh = SubResource("PlaneMesh_0syq1")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+mesh = SubResource("PlaneMesh_7ktr0")
