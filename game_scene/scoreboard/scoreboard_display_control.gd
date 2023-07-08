@@ -66,10 +66,6 @@ func _ready():
 	update_text()
 	animation_timer.set_wait_time(animation_speed)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func get_characters_max() -> int:
 	# Since we're looking at a monospaced font we can easily calculate number of
 	# chars we can allow on the display
