@@ -6,7 +6,7 @@ var impulse := 1000.0
 
 ## The impulse vector to apply to the ball when it touches the bumper.
 @onready
-var _impulse_vector := Vector2.from_angle(rotation) * impulse
+var _impulse_vector := Vector2.from_angle(rotation - PI/2) * impulse
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
