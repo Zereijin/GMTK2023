@@ -10,4 +10,4 @@ func _input(event):
 		set_pressed(not is_pressed())
 
 func _on_toggled(state):
-	AudioServer.set_bus_mute(_master_audio_bus_index, state)
+	AudioServer.set_bus_mute(_master_audio_bus_index, not state)
