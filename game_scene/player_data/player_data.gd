@@ -118,10 +118,7 @@ func read_lowest_scores() -> PackedInt64Array:
 	conf.load("user://scores.ini")
 	var ret := PackedInt64Array()
 	for i in range(low_score_count):
-		print(i)
 		var elt = conf.get_value("player" + str(i), "score")
-		print(elt)
-		print(elt is int)
 		if elt is int:
 			ret.append(elt)
 		else:
