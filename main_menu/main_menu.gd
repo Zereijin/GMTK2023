@@ -22,7 +22,7 @@ func _on_credits_button_pressed():
 func _on_close_credits_button_pressed():
 	get_node("CreditPanel").visible=false
 	mainMenuFocusButton.grab_focus()
-	
+
 func _on_controls_button_pressed():
 	mainMenuFocusButton = $MainMenuButtonContainer/ControlsButton
 	get_node("ControlsPanel").visible=true
