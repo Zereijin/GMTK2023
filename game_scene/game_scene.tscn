@@ -1435,12 +1435,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="fuel_gauge" parent="hud/Control" instance=ExtResource("16_f033c")]
+[node name="fuel_gauge_container" type="PanelContainer" parent="hud/Control"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+offset_right = 14.0
+offset_bottom = 14.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_licax")
+
+[node name="MarginContainer" type="MarginContainer" parent="hud/Control/fuel_gauge_container"]
 layout_mode = 2
-offset_right = 281.0
-offset_bottom = 24.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="fuel_gauge" parent="hud/Control/fuel_gauge_container/MarginContainer" instance=ExtResource("16_f033c")]
+layout_mode = 2
 
 [node name="score_display" parent="hud/Control" instance=ExtResource("16_61bdh")]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1471,7 +1484,7 @@ theme_override_constants/margin_top = 12
 [node name="Label" type="Label" parent="hud/Control/ball_display_container/HBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("17_dd7r4")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 30
 text = "Balls:"
 vertical_alignment = 1
 

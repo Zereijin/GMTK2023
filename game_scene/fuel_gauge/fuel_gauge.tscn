@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6n3vq51hl2gb"]
+[gd_scene load_steps=4 format=3 uid="uid://b6n3vq51hl2gb"]
 
 [ext_resource type="Script" path="res://game_scene/fuel_gauge/fuel_gauge.gd" id="1_v26rp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahmwj"]
+bg_color = Color(0.384314, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxcg8"]
+bg_color = Color(0.211765, 0.709804, 0.266667, 1)
 
 [node name="fuel_gauge" type="ProgressBar"]
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_ahmwj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cxcg8")
 max_value = 1.0
 show_percentage = false
 script = ExtResource("1_v26rp")
