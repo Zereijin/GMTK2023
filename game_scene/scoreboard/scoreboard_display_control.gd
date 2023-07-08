@@ -21,10 +21,6 @@ var animation:AnimationTypes = AnimationTypes.NONE: set = _set_animation
 @export
 var animation_speed:float = 1.0: set = _set_animation_speed
 
-# Refers to the part of system that actually displays text
-@onready
-var display_text = $ScoreboardDisplay
-
 @onready
 var animation_timer = $AnimationTimer
 
