@@ -2,6 +2,9 @@ class_name ScoreboardDisplayControl
 
 extends Label
 
+## Emitted when the scrolling animation reaches the end and wraps around.
+signal scrolled()
+
 # Text to initially display in the display
 @export
 var raw_text: String = "0": set = _set_raw_text
@@ -80,6 +83,8 @@ func _on_animation_timer():
 		# Then move the offset and pull out the text to rotate
 		scroll_offset = ( scroll_offset + 1 ) % (raw_text.length() + get_characters_max())
 		update_text()
+		if scroll_offset == 0:
+			scrolled.emit()
 
 func update_text():
 	# Find out what the maximum length of the display (which can also
