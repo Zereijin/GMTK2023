@@ -1602,10 +1602,6 @@ property = "extra_balls"
 
 [node name="end_scene" parent="hud" instance=ExtResource("19_5wpqy")]
 visible = false
-offset_left = 548.0
-offset_top = 324.0
-offset_right = 579.0
-offset_bottom = 436.0
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_5qthm")
