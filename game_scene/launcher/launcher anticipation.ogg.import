@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://5lyqhs8som53"
+path="res://.godot/imported/launcher anticipation.ogg-6f7b3e98ad3bad5c179e2b76c5240f11.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_scene/launcher/launcher anticipation.ogg"
+dest_files=["res://.godot/imported/launcher anticipation.ogg-6f7b3e98ad3bad5c179e2b76c5240f11.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
