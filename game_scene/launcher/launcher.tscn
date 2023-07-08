@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr80xtmxct16f"]
+[gd_scene load_steps=8 format=3 uid="uid://cr80xtmxct16f"]
 
 [ext_resource type="Script" path="res://game_scene/launcher/launcher.gd" id="1_ye401"]
 [ext_resource type="Texture2D" path="res://game_scene/launcher/launcher.png" id="2_nod1h"]
@@ -7,6 +7,13 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x653f"]
 size = Vector2(100, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xey0h"]
+bounce = 0.25
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51s6b"]
+size = Vector2(100, 50)
 
 [node name="launcher" type="Node2D"]
 script = ExtResource("1_ye401")
@@ -18,6 +25,14 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_x653f")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_xey0h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_51s6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 63)

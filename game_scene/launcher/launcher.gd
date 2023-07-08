@@ -43,6 +43,10 @@ var _trigger := $Area2D
 @onready
 var _sprite := $Sprite2D
 
+## The solid body.
+@onready
+var _body := $AnimatableBody2D
+
 ## The pullback sound.
 @onready
 var _pullback_sound := $pullback_player
@@ -65,15 +69,22 @@ func _physics_process(delta: float) -> void:
 
 	# Prevent multiple concurrent executions of the coroutine.
 	_busy = true
-	# Wait for the settle time, pull back the plunger (playing the pullback sound), wait for the
-	## hold time, and release the plunger (playing the fire sound).
+	# Wait for the settle time.
 	var tween := create_tween()
 	tween.tween_interval(randf_range(settle_time_minimum, settle_time_maximum))
+	# Pull back the plunger (playing the pullback sound). Move the body with it, to lower the ball.
+	var body_orig_pos: Vector2 = _body.position
 	tween.tween_callback(_pullback_sound.play)
 	tween.tween_property(_sprite, "position", pullback_vector, _pullback_sound.stream.get_length()) \
 		.as_relative() \
 		.set_ease(Tween.EASE_IN_OUT)
+	tween.parallel()
+	tween.tween_property(_body, "position", pullback_vector, _pullback_sound.stream.get_length()) \
+		.as_relative() \
+		.set_ease(Tween.EASE_IN_OUT)
+	# Wait for the hold time.
 	tween.tween_interval(randf_range(hold_time_minimum, hold_time_maximum))
+	# Release the plunger (playing the fire sound and pushing the ball).
 	tween.tween_callback(_fire_sound.play)
 	tween.tween_property(_sprite, "position", _sprite.position, release_time) \
 		.set_ease(Tween.EASE_IN)
@@ -84,6 +95,13 @@ func _physics_process(delta: float) -> void:
 	if not PlayerData.first_launch:
 		PlayerData.score_relaunch()
 	PlayerData.first_launch = false
+	# Move the collision body back afterwards, to avoid interfering with the launching ball.
+	_body.position = body_orig_pos
+	# Wait a couple of physics frames so the linear velocity estimate can update.
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	# Zero the velocity estimate so that it doesn’t bounce things that land on it now.
+	_body.constant_linear_velocity = Vector2.ZERO
 	# Wait three seconds to avoid false triggers.
 	await get_tree().create_timer(3, false).timeout
 	# Re-enable triggering.
