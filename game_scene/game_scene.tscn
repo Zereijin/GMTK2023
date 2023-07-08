@@ -1411,7 +1411,7 @@ rotation = 0.349066
 scale = Vector2(0.2, 0.2)
 
 [node name="bumper4" parent="bumpers" instance=ExtResource("19_rjsla")]
-position = Vector2(408, -384)
+position = Vector2(432, -384)
 rotation = -0.349066
 scale = Vector2(-0.2, 0.2)
 
