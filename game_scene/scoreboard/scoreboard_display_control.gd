@@ -72,9 +72,11 @@ func _ready():
 func get_characters_max() -> int:
 	# Since we're looking at a monospaced font we can easily calculate number of
 	# chars we can allow on the display
+	var font := get_theme_font("font")
+	var font_size := get_theme_font_size("font_size")
 	return int(
 		self.size.x / float(
-			theme.default_font.get_string_size("0", HORIZONTAL_ALIGNMENT_RIGHT, -1, theme.default_font_size).x
+			font.get_string_size("0", HORIZONTAL_ALIGNMENT_RIGHT, -1, font_size).x
 		)
 	)
 
