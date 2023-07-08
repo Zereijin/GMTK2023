@@ -1,4 +1,4 @@
-[gd_scene load_steps=180 format=3 uid="uid://dmg85pdsmpox8"]
+[gd_scene load_steps=179 format=3 uid="uid://dmg85pdsmpox8"]
 
 [ext_resource type="PackedScene" uid="uid://c4go7s62rahph" path="res://game_scene/ball/ball.tscn" id="1_ugfsb"]
 [ext_resource type="Script" path="res://game_scene/game_scene.gd" id="1_vtrq5"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://8f7qirule62d" path="res://game_scene/drain/drain.tscn" id="10_3yl1e"]
 [ext_resource type="PackedScene" uid="uid://bnbx7rddw0b0x" path="res://game_scene/pylon/pylon.tscn" id="11_1rv8e"]
 [ext_resource type="PackedScene" uid="uid://cr80xtmxct16f" path="res://game_scene/launcher/launcher.tscn" id="11_fj1e5"]
-[ext_resource type="AudioStream" uid="uid://bu6u18aclamiu" path="res://game_scene/music/main bgm loop.ogg" id="16_5qthm"]
 [ext_resource type="PackedScene" uid="uid://bthsfh1lr76di" path="res://game_scene/integer_display/integer_display.tscn" id="16_61bdh"]
 [ext_resource type="PackedScene" uid="uid://b6n3vq51hl2gb" path="res://game_scene/fuel_gauge/fuel_gauge.tscn" id="16_f033c"]
 [ext_resource type="FontFile" uid="uid://dhyodwt8a8awi" path="res://fonts/keypunch029/Keypunch029-Bold.otf" id="17_dd7r4"]
@@ -1602,9 +1601,5 @@ property = "extra_balls"
 
 [node name="end_scene" parent="hud" instance=ExtResource("19_5wpqy")]
 visible = false
-
-[node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_5qthm")
-autoplay = true
 
 [connection signal="game_over" from="drain" to="." method="_on_game_over"]

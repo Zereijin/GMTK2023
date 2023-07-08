@@ -3,6 +3,7 @@ extends Node2D
 func _ready() -> void:
 	get_tree().paused = false
 	PlayerData.start_game()
+	Music.play = true
 
 func _on_game_over() -> void:
 	get_tree().paused = true

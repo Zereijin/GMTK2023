@@ -8,6 +8,7 @@ func _ready():
 	randomize()
 	mainMenuFocusButton = $MainMenuButtonContainer/PlayButton
 	mainMenuFocusButton.grab_focus()
+	Music.play = false
 
 func _on_play_button_pressed():
 	var error := get_tree().change_scene_to_packed(start_scene)

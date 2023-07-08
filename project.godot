@@ -19,6 +19,7 @@ config/windows_native_icon="res://painball.ico"
 [autoload]
 
 PlayerData="*res://game_scene/player_data/player_data.tscn"
+Music="*res://music/music.tscn"
 
 [display]
 
