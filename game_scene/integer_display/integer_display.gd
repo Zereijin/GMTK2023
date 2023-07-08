@@ -4,9 +4,6 @@ extends PanelContainer
 @export
 var property: String
 
-@export
-var prefix: String
-
 ## How long it takes to reach the final displayed value.
 @export_range(0.0, 10.0, 0.1)
 var ramp_time := 0.0
@@ -28,7 +25,6 @@ func _ready() -> void:
 	var value: int = PlayerData.get(property)
 	_last_displayed = value
 	_before_last_change = value
-	_display.prefix = prefix
 	_display.score = value
 	PlayerData.connect(property + "_changed", _on_change)
 

@@ -10,9 +10,13 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.207843, 0, 0.235294, 1)
+border_color = Color(0.266667, 0.231373, 0.356863, 1)
 
 [node name="integer_display" type="PanelContainer"]
+custom_minimum_size = Vector2(80, 0)
+offset_left = 1.0
+offset_right = 81.0
+offset_bottom = 56.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ka2x5")
 script = ExtResource("1_nhqnf")
 
@@ -26,4 +30,4 @@ theme_override_constants/margin_right = 10
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_hpuib")
 theme_override_font_sizes/font_size = 34
-text = "1234567890"
+text = "123"
