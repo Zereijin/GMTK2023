@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://dy0t5e08lbfsi"]
+
+[ext_resource type="Shader" path="res://game_scene/scoreboard/shader-text.gdshader" id="1_0vp5a"]
+[ext_resource type="FontFile" uid="uid://c2jbtbfecrr66" path="res://game_scene/scoreboard/7segment.ttf" id="2_e3vnw"]
+[ext_resource type="Script" path="res://game_scene/scoreboard/scoreboard_display_control.gd" id="3_rfwgn"]
+[ext_resource type="Shader" path="res://game_scene/scoreboard/scoreboard_display.gdshader" id="4_2g1e5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_htlh4"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tn732"]
+seamless = true
+noise = SubResource("FastNoiseLite_htlh4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_genvj"]
+shader = ExtResource("1_0vp5a")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_tn732")
+
+[sub_resource type="Theme" id="Theme_wmrvf"]
+default_font = ExtResource("2_e3vnw")
+default_font_size = 100
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ghbs"]
+shader = ExtResource("4_2g1e5")
+shader_parameter/blur_amount = 0.36
+
+[sub_resource type="QuadMesh" id="QuadMesh_0v60o"]
+
+[node name="ScoreboardDisplay" type="Label"]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_genvj")
+offset_right = 377.0
+offset_bottom = 104.0
+theme = SubResource("Theme_wmrvf")
+text = "0123456"
+horizontal_alignment = 2
+script = ExtResource("3_rfwgn")
+
+[node name="DisplayOverlay" type="MeshInstance2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_4ghbs")
+position = Vector2(251, 51)
+scale = Vector2(502, 100)
+mesh = SubResource("QuadMesh_0v60o")
+
+[node name="AnimationTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer"]
