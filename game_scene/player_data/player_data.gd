@@ -37,6 +37,10 @@ var bumper_score := 1000
 @export_range(1, 1000000, 1)
 var pylon_score := 1000
 
+## The number of points needed to earn an extra ball.
+@export_range(1, 1000000000, 1)
+var extra_ball_score := 10000
+
 ## The current score.
 var score := 0
 
@@ -95,5 +99,10 @@ func _use_fuel(amount: float) -> bool:
 
 ## Adds some points to the score.
 func _add_points(amount: int) -> void:
+	var before := score / extra_ball_score
 	score += amount
+	var after := score / extra_ball_score
 	score_changed.emit(score)
+	if before != after:
+		extra_balls += after - before
+		extra_balls_changed.emit(extra_balls)
