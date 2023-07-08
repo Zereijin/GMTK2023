@@ -4,8 +4,25 @@ extends StaticBody2D
 @export_range(100.0, 1000000.0, 100.0)
 var impulse := 1000.0
 
+@export
+var bump_scaling_animation:CurveTexture;
+
+# This is ugly but used to simplify the computation of the progress on
+# the "bump" animation. The progress is then fed into the curve to
+# figure out what the scale in that point of time for the pylon
+var bump_frame_count_inverse:float;
+
 func _ready():
 	$AnimatedSprite2D.play("idle")
+	
+	# Figure out what fraction of time each frame of the animation should represent
+	bump_frame_count_inverse = 1.0 / float($AnimatedSprite2D.sprite_frames.get_frame_count("bump"))
+
+func _process(delta):
+	if $AnimatedSprite2D.animation == "bump":
+		var progress:float = float($AnimatedSprite2D.frame) * bump_frame_count_inverse + bump_frame_count_inverse * $AnimatedSprite2D.frame_progress
+		var scale = bump_scaling_animation.curve.sample(progress)
+		$AnimatedSprite2D.scale = Vector2(scale, scale);
 
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.get_animation() == "bump":

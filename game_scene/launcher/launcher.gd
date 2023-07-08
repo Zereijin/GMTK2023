@@ -12,10 +12,6 @@ var settle_time_maximum := 2.0
 @export
 var pullback_vector := Vector2(0.0, 100.0)
 
-## How long pullback should take.
-@export_range(0.1, 10.0, 0.1)
-var pullback_time := 1.0
-
 ## The minimum time to hold the plunger at maximum position.
 @export_range(0.0, 5.0, 0.1)
 var hold_time_minimum := 0.1
@@ -47,9 +43,17 @@ var _trigger := $Area2D
 @onready
 var _sprite := $Sprite2D
 
-## The sound.
+## The solid body.
 @onready
-var _sound := $AudioStreamPlayer2D
+var _body := $AnimatableBody2D
+
+## The pullback sound.
+@onready
+var _pullback_sound := $pullback_player
+
+## The fire sound.
+@onready
+var _fire_sound := $fire_player
 
 func _physics_process(delta: float) -> void:
 	if _busy:
@@ -65,15 +69,23 @@ func _physics_process(delta: float) -> void:
 
 	# Prevent multiple concurrent executions of the coroutine.
 	_busy = true
-	# Wait for the settle time, pull back the plunger, wait for the hold time, and release the
-	# plunger.
+	# Wait for the settle time.
 	var tween := create_tween()
 	tween.tween_interval(randf_range(settle_time_minimum, settle_time_maximum))
-	tween.tween_property(_sprite, "position", pullback_vector, pullback_time) \
+	# Pull back the plunger (playing the pullback sound). Move the body with it, to lower the ball.
+	var body_orig_pos: Vector2 = _body.position
+	tween.tween_callback(_pullback_sound.play)
+	tween.tween_property(_sprite, "position", pullback_vector, _pullback_sound.stream.get_length()) \
 		.as_relative() \
 		.set_ease(Tween.EASE_IN_OUT)
+	tween.parallel()
+	tween.tween_property(_body, "position", pullback_vector, _pullback_sound.stream.get_length()) \
+		.as_relative() \
+		.set_ease(Tween.EASE_IN_OUT)
+	# Wait for the hold time.
 	tween.tween_interval(randf_range(hold_time_minimum, hold_time_maximum))
-	tween.tween_callback(_sound.play)
+	# Release the plunger (playing the fire sound and pushing the ball).
+	tween.tween_callback(_fire_sound.play)
 	tween.tween_property(_sprite, "position", _sprite.position, release_time) \
 		.set_ease(Tween.EASE_IN)
 	await tween.finished
@@ -83,6 +95,13 @@ func _physics_process(delta: float) -> void:
 	if not PlayerData.first_launch:
 		PlayerData.score_relaunch()
 	PlayerData.first_launch = false
+	# Move the collision body back afterwards, to avoid interfering with the launching ball.
+	_body.position = body_orig_pos
+	# Wait a couple of physics frames so the linear velocity estimate can update.
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	# Zero the velocity estimate so that it doesn’t bounce things that land on it now.
+	_body.constant_linear_velocity = Vector2.ZERO
 	# Wait three seconds to avoid false triggers.
 	await get_tree().create_timer(3, false).timeout
 	# Re-enable triggering.

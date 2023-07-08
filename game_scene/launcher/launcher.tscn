@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr80xtmxct16f"]
+[gd_scene load_steps=8 format=3 uid="uid://cr80xtmxct16f"]
 
 [ext_resource type="Script" path="res://game_scene/launcher/launcher.gd" id="1_ye401"]
-[ext_resource type="Texture2D" uid="uid://wn2i7uatol4j" path="res://game_scene/launcher/launcher.png" id="2_nod1h"]
+[ext_resource type="Texture2D" path="res://game_scene/launcher/launcher.png" id="2_nod1h"]
 [ext_resource type="AudioStream" uid="uid://bpt8ag6st648q" path="res://game_scene/launcher/launch.ogg" id="3_vcpun"]
+[ext_resource type="AudioStream" uid="uid://5lyqhs8som53" path="res://game_scene/launcher/launcher anticipation.ogg" id="4_cpcvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x653f"]
 size = Vector2(100, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xey0h"]
+bounce = 0.25
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51s6b"]
+size = Vector2(100, 50)
 
 [node name="launcher" type="Node2D"]
 script = ExtResource("1_ye401")
@@ -13,14 +21,26 @@ script = ExtResource("1_ye401")
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_x653f")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_xey0h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_51s6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 63)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_nod1h")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="fire_player" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_vcpun")
+
+[node name="pullback_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cpcvf")
