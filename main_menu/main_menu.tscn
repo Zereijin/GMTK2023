@@ -180,6 +180,7 @@ theme = ExtResource("2_liuhe")
 text = "Go Back"
 
 [node name="ControlsPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -213,9 +214,9 @@ layout_mode = 2
 [node name="ObjectiveTitleLabel" type="Label" parent="ControlsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_liuhe")
+theme_type_variation = &"HeaderMedium"
 text = "
-
-OBJECTIVE"
+OBJECTIVE:"
 horizontal_alignment = 1
 
 [node name="ObjectiveLabel" type="Label" parent="ControlsPanel/MarginContainer/VBoxContainer"]
@@ -229,18 +230,19 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
-text = "CONTROLS"
+theme_type_variation = &"HeaderMedium"
+text = "CONTROLS:"
 horizontal_alignment = 1
 
 [node name="ControlsLabel" type="Label" parent="ControlsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
-text = "Note: All actions take an amount of meter.
-If you run out of meter, you will lose control until it is refilled.
+text = "Arrow Keys: Nudge yourself in a direction
+Space Bar: Hold to slow your velocity
 
-Arrow Keys: Nudge yourself in a direction
-Space Bar: Hold to slow your velocity"
+Note: All actions take an amount of meter.
+If you run out of meter, you will lose control until it is refilled."
 horizontal_alignment = 1
 
 [node name="CloseControlsButton" type="Button" parent="ControlsPanel/MarginContainer/VBoxContainer"]
