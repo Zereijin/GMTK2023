@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://jx7h813i2g3p"
+path="res://.godot/imported/main bgm loop.ogg-031b0c23d0eff4bc87b3b1c89efd4ef6.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_scene/music/main bgm loop.ogg"
+dest_files=["res://.godot/imported/main bgm loop.ogg-031b0c23d0eff4bc87b3b1c89efd4ef6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
