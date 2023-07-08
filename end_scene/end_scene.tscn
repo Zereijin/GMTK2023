@@ -1,71 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbmike0vj57v7"]
+[gd_scene load_steps=2 format=3 uid="uid://bbmike0vj57v7"]
 
 [ext_resource type="Script" path="res://end_scene/end_scene.gd" id="1_ccbdf"]
-[ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="2_ga78b"]
 
 [node name="end_scene" type="VBoxContainer"]
 process_mode = 3
-offset_left = 114.0
-offset_top = 64.0
-offset_right = 1063.0
-offset_bottom = 598.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 script = ExtResource("1_ccbdf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_ga78b")
-theme_type_variation = &"HeaderLarge"
-text = "Thank you for playing!
-
-"
-horizontal_alignment = 1
-
-[node name="scores" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="VBoxContainer/scores"]
-layout_mode = 2
-theme = ExtResource("2_ga78b")
-theme_type_variation = &"HeaderMedium"
-text = "High Scores"
-
-[node name="score0" type="Label" parent="VBoxContainer/scores"]
+[node name="scores" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="score1" type="Label" parent="VBoxContainer/scores"]
+[node name="score0" type="Label" parent="scores"]
 layout_mode = 2
 
-[node name="score2" type="Label" parent="VBoxContainer/scores"]
+[node name="score1" type="Label" parent="scores"]
 layout_mode = 2
 
-[node name="buttons" type="HBoxContainer" parent="VBoxContainer"]
+[node name="score2" type="Label" parent="scores"]
 layout_mode = 2
-size_flags_vertical = 8
-alignment = 1
 
-[node name="retry_button" type="Button" parent="VBoxContainer/buttons"]
+[node name="buttons" type="HBoxContainer" parent="."]
 layout_mode = 2
-theme = ExtResource("2_ga78b")
-text = "Try Again"
 
-[node name="mainmenu_button" type="Button" parent="VBoxContainer/buttons"]
+[node name="ok_button" type="Button" parent="buttons"]
 layout_mode = 2
-theme = ExtResource("2_ga78b")
-text = "Main Menu"
+text = "OK"
 
-[node name="exit_button" type="Button" parent="VBoxContainer/buttons"]
-layout_mode = 2
-theme = ExtResource("2_ga78b")
-text = "Exit"
-
-[connection signal="pressed" from="VBoxContainer/buttons/retry_button" to="." method="_on_ok_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/buttons/mainmenu_button" to="." method="_on_ok_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/buttons/exit_button" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="buttons/ok_button" to="." method="_on_ok_button_pressed"]

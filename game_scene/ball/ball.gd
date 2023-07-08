@@ -50,7 +50,7 @@ var _drag_cooldown_remaining := 0.0
 var _bump_impulses := {
 	"bump_left": Vector2.LEFT * bump_impulse,
 	"bump_right": Vector2.RIGHT * bump_impulse,
-	"bump_up": Vector2.UP * bump_impulse,
+	"bump_up": Vector2.UP * bump_impulse / 2,
 	"bump_down": Vector2.DOWN * bump_impulse,
 }
 
