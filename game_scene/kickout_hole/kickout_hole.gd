@@ -1,5 +1,8 @@
 extends Area2D
 
+## Emitted when the ball is captured by the hole.
+signal captured()
+
 ## How much impulse to apply to the ball when it is kicked.
 @export_range(100.0, 1000000.0, 100.0)
 var impulse := 1000.0
@@ -38,6 +41,9 @@ func _on_body_entered(body: Node2D) -> void:
 
 	# Give points.
 	PlayerData.score_kickout_hole()
+
+	# Announce.
+	captured.emit()
 
 	# Release the ball when bonus sound ends
 	await $bonusAudioStreamPlayer2D.finished
