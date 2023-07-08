@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://uvekuka24er4"
+path="res://.godot/imported/ball stick.ogg-1c3aa9c5ed9511c83e8b48204675d328.oggvorbisstr"
+
+[deps]
+
+source_file="res://game_scene/ball/ball stick.ogg"
+dest_files=["res://.godot/imported/ball stick.ogg-1c3aa9c5ed9511c83e8b48204675d328.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
