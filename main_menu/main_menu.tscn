@@ -110,7 +110,14 @@ horizontal_alignment = 1
 [node name="JamLabel2" type="Label" parent="CreditPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_liuhe")
-theme_type_variation = &"HeaderMedium"
+theme_type_variation = &"HeaderSmall"
+text = "(July 7th - 9th, 2023)"
+horizontal_alignment = 1
+
+[node name="JamLabel3" type="Label" parent="CreditPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_liuhe")
+theme_type_variation = &"HeaderSmall"
 text = "Theme: \"roles reversed\""
 horizontal_alignment = 1
 
