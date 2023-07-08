@@ -1375,16 +1375,32 @@ scale = Vector2(0.1, 0.1)
 position = Vector2(240, -936)
 scale = Vector2(0.1, 0.1)
 
+[node name="pylon6" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(-144, 144)
+scale = Vector2(0.15, 0.15)
+
+[node name="pylon7" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(144, 144)
+scale = Vector2(0.15, 0.15)
+
+[node name="pylon8" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(72, -24)
+scale = Vector2(0.15, 0.15)
+
+[node name="pylon9" parent="pylons" instance=ExtResource("11_1rv8e")]
+position = Vector2(-72, -24)
+scale = Vector2(0.15, 0.15)
+
 [node name="bumpers" type="Node2D" parent="."]
 
 [node name="bumper" parent="bumpers" instance=ExtResource("19_rjsla")]
-position = Vector2(-144, 144)
-rotation = 1.0472
+position = Vector2(-144, 720)
+rotation = 1.22173
 scale = Vector2(0.2, 0.2)
 
 [node name="bumper2" parent="bumpers" instance=ExtResource("19_rjsla")]
-position = Vector2(144, 144)
-rotation = -1.0472
+position = Vector2(144, 720)
+rotation = -1.22173
 scale = Vector2(-0.2, 0.2)
 
 [node name="bumper3" parent="bumpers" instance=ExtResource("19_rjsla")]
@@ -1451,6 +1467,7 @@ ball = NodePath("../ball")
 [node name="hud" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="hud"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1514,6 +1531,7 @@ vertical_alignment = 1
 [node name="extra_balls_display" parent="hud/Control/ball_display_container/HBoxContainer" instance=ExtResource("16_61bdh")]
 layout_mode = 2
 property = "extra_balls"
+
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_5qthm")
 autoplay = true
