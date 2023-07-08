@@ -4,6 +4,9 @@ extends Node
 ## Emitted when the current fuel value changes.
 signal changed(new_value: float)
 
+## Emitted when the number of extra balls available changes.
+signal extra_balls_changed(new_value: int)
+
 ## The maximum fuel the player can have.
 @export
 var maximum := 100.0
@@ -20,9 +23,17 @@ var bump_usage := 25.0
 @export
 var drag_usage := 25.0
 
+## The number of balls played per game.
+@export_range(1, 100, 1)
+var total_balls := 3
+
 ## The current balance of fuel.
 @onready
 var current := maximum
+
+## The number of extra balls remaining.
+@onready
+var extra_balls := total_balls - 1
 
 func _physics_process(delta: float) -> void:
 	var old := current
@@ -48,3 +59,15 @@ func use_bump() -> bool:
 ## enough was available.
 func use_drag(delta: float) -> bool:
 	return _use(drag_usage * delta)
+
+## Consumes an extra ball, returning true if there were any or false if not.
+func use_ball() -> bool:
+	if extra_balls != 0:
+		extra_balls -= 1
+		extra_balls_changed.emit(extra_balls)
+		if current !=  maximum:
+			current = maximum
+			changed.emit(current)
+		return true
+	else:
+		return false
