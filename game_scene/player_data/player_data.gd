@@ -37,6 +37,10 @@ var bumper_score := 1000
 @export_range(1, 1000000, 1)
 var pylon_score := 500
 
+## The number of points added for being captured by a kick-out hole.
+@export_range(1, 1000000, 1)
+var kickout_hole_score := 20000
+
 ## The number of points added for launching the same ball a second time.
 @export_range(1, 1000000000, 1)
 var relaunch_score := 50000
@@ -93,6 +97,10 @@ func score_bumper() -> void:
 ## Grants points for touching a pylon.
 func score_pylon() -> void:
 	_add_points(pylon_score)
+
+## Grants points for being captured by a kick-out hole.
+func score_kickout_hole() -> void:
+	_add_points(kickout_hole_score)
 
 ## Grants points for launching the same ball a second time.
 func score_relaunch() -> void:

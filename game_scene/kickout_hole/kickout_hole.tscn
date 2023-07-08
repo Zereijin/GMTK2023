@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxl51m68b0pox"]
+
+[ext_resource type="Script" path="res://game_scene/kickout_hole/kickout_hole.gd" id="1_a26nv"]
+[ext_resource type="Texture2D" uid="uid://bdtnfhgl02b7o" path="res://game_scene/kickout_hole/kickout_hole_with_ball.png" id="2_k6owk"]
+[ext_resource type="AudioStream" uid="uid://cbevspul08kpi" path="res://game_scene/pylon/pylon_ding.ogg" id="3_fptib"]
+[ext_resource type="Texture2D" uid="uid://sbcnjdrjufg0" path="res://game_scene/kickout_hole/kickout_hole.png" id="3_ibxjy"]
+[ext_resource type="AudioStream" uid="uid://h7gtrw2acb0s" path="res://game_scene/kickout_hole/captured_sound.ogg" id="4_m7822"]
+[ext_resource type="AudioStream" uid="uid://lkbkapalspkk" path="res://game_scene/flipper/flipper_press.ogg" id="4_yk5lb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8q2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k6owk")
+}],
+"loop": true,
+"name": &"captured",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ibxjy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eq3pw"]
+radius = 1.0
+
+[node name="kickout_hole" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+input_pickable = false
+monitorable = false
+script = ExtResource("1_a26nv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_r8q2f")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eq3pw")
+
+[node name="captureAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fptib")
+
+[node name="bonusAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_m7822")
+
+[node name="kickAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yk5lb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
