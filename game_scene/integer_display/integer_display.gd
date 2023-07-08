@@ -35,8 +35,8 @@ var _message_queue_next := 0
 func enqueue_message(message: String) -> void:
 	if _display.animation == ScoreboardDisplayControl.AnimationTypes.NONE:
 		# The integer is currently being shown. The message need not be queued. Show it now.
-		_display.raw_text = message
 		_display.animation = ScoreboardDisplayControl.AnimationTypes.SCROLL
+		_display.raw_text = message
 	else:
 		# Some other textual message is being shown. Queue up this message.
 		_message_queue.append(message)
@@ -45,8 +45,8 @@ func enqueue_message(message: String) -> void:
 func override_message(message: String) -> void:
 	_message_queue.clear()
 	_message_queue_next = 0
-	_display.raw_text = message
 	_display.animation = ScoreboardDisplayControl.AnimationTypes.SCROLL
+	_display.raw_text = message
 
 func _ready() -> void:
 	var value: int = PlayerData.get(property)
@@ -77,8 +77,8 @@ func _on_scoreboard_display_scrolled() -> void:
 		# There are no more messages.
 		_message_queue.clear()
 		_message_queue_next = 0
-		_display.animation = ScoreboardDisplayControl.AnimationTypes.NONE
 		_display.raw_text = str(_last_displayed)
+		_display.animation = ScoreboardDisplayControl.AnimationTypes.NONE
 	else:
 		# There is another message.
 		_display.raw_text = _message_queue[_message_queue_next]
