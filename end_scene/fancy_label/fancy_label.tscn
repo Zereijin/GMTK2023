@@ -1,6 +1,67 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm3bvou363o8s"]
+[gd_scene load_steps=8 format=3 uid="uid://dm3bvou363o8s"]
 
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="1_wifnn"]
+[ext_resource type="Script" path="res://end_scene/fancy_label/fancy_label.gd" id="2_vxqon"]
+
+[sub_resource type="Gradient" id="Gradient_o34wv"]
+offsets = PackedFloat32Array(0, 0.167, 0.333, 0.5, 0.667, 0.833, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nsamu"]
+gradient = SubResource("Gradient_o34wv")
+width = 512
+
+[sub_resource type="Animation" id="Animation_fxkw4"]
+resource_name = "slide"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gradient:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-256, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oktas"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gradient:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-256, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_optqn"]
+_data = {
+"RESET": SubResource("Animation_oktas"),
+"slide": SubResource("Animation_fxkw4")
+}
 
 [node name="fancy_label" type="Label"]
 theme = ExtResource("1_wifnn")
+script = ExtResource("2_vxqon")
+
+[node name="gradient" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -256.0
+offset_right = 256.0
+offset_bottom = 40.0
+texture = SubResource("GradientTexture1D_nsamu")
+
+[node name="gradient_slider" type="AnimationPlayer" parent="."]
+autoplay = "slide"
+libraries = {
+"": SubResource("AnimationLibrary_optqn")
+}
