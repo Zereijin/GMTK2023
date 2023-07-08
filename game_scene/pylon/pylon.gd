@@ -15,4 +15,7 @@ func ball_contact():
 	$AnimatedSprite2D.play("bump")
 
 	# Play bump sound effect once
+	# Randomize the the pitch up to a semitone higher or lower
+	var rng = RandomNumberGenerator.new()
+	$AudioStreamPlayer2D.pitch_scale = rng.randf_range(0.943874, 1.059463)
 	$AudioStreamPlayer2D.play()

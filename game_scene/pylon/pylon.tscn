@@ -10,10 +10,22 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_4f32k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gr08u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4f32k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gr08u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4f32k")
 }],
 "loop": false,
 "name": &"bump",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
