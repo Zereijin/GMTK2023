@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	if not _prefiring and not _player.is_playing():
 		if _trigger.has_overlapping_bodies():
 			_prefiring = true
-			await get_tree().create_timer(randf_range(delay_minimum, delay_maximum)).timeout
+			await get_tree().create_timer(randf_range(delay_minimum, delay_maximum), false).timeout
 			_prefiring = false
 			_player.play("fire")
 			_active = true
