@@ -23,6 +23,7 @@ func _on_body_entered(body: Node2D) -> void:
 	_audio.play()
 	await _audio.finished
 	if PlayerData.use_ball():
+		PlayerData.first_launch = true
 		ball.position = _initial_ball_position
 		ball.linear_velocity = Vector2.ZERO
 		await get_tree().physics_frame

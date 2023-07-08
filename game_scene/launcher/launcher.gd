@@ -79,6 +79,10 @@ func _physics_process(delta: float) -> void:
 	await tween.finished
 	# Push the ball.
 	rigid.apply_central_impulse(Vector2(0, -randf_range(impulse_minimum, impulse_maximum)))
+	# Update player data.
+	if not PlayerData.first_launch:
+		PlayerData.score_relaunch()
+	PlayerData.first_launch = false
 	# Wait three seconds to avoid false triggers.
 	await get_tree().create_timer(3, false).timeout
 	# Re-enable triggering.

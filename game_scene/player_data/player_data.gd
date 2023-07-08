@@ -37,12 +37,19 @@ var bumper_score := 1000
 @export_range(1, 1000000, 1)
 var pylon_score := 1000
 
+## The number of points added for launching the same ball a second time.
+@export_range(1, 1000000000, 1)
+var relaunch_score := 100000
+
 ## The number of points needed to earn an extra ball.
 @export_range(1, 1000000000, 1)
 var extra_ball_score := 10000
 
 ## The current score.
 var score := 0
+
+## Whether the current plunger activation is the first of this ball.
+var first_launch := true
 
 ## The current balance of fuel.
 @onready
@@ -86,6 +93,10 @@ func score_bumper() -> void:
 ## Grants points for touching a pylon.
 func score_pylon() -> void:
 	_add_points(pylon_score)
+
+## Grants points for launching the same ball a second time.
+func score_relaunch() -> void:
+	_add_points(relaunch_score)
 
 ## Tries to consume a quantity of fuel, returning true on success or false if not enough was
 ## available.
