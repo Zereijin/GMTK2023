@@ -1,9 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnbx7rddw0b0x"]
+[gd_scene load_steps=9 format=3 uid="uid://bnbx7rddw0b0x"]
 
 [ext_resource type="Script" path="res://game_scene/pylon/pylon.gd" id="1_0iuv5"]
-[ext_resource type="Texture2D" uid="uid://vqfkelyxsmox" path="res://game_scene/pylon/pylon_hit.png" id="2_4f32k"]
-[ext_resource type="Texture2D" uid="uid://dwbmpeo6iqcat" path="res://game_scene/pylon/pylon.png" id="3_gr08u"]
+[ext_resource type="Texture2D" uid="uid://d38kfqtxmarls" path="res://game_scene/pylon/pylon_hit.png" id="2_4f32k"]
+[ext_resource type="Texture2D" uid="uid://dcgyim8hp3a8l" path="res://game_scene/pylon/pylon.png" id="3_gr08u"]
 [ext_resource type="AudioStream" uid="uid://cbevspul08kpi" path="res://game_scene/pylon/pylon_ding.ogg" id="4_hn62m"]
+
+[sub_resource type="Curve" id="Curve_3mhlk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.201401, 0.210526), 0.0, 0.0, 0, 0, Vector2(0.304729, 0.989474), 0.0, 0.0, 0, 0, Vector2(0.989492, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_bpkek"]
+curve = SubResource("Curve_3mhlk")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1rcc"]
 animations = [{
@@ -41,6 +48,7 @@ radius = 157.385
 
 [node name="pylon" type="StaticBody2D" groups=["ball_collision_notifiable"]]
 script = ExtResource("1_0iuv5")
+bump_scaling_animation = SubResource("CurveTexture_bpkek")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r1rcc")
