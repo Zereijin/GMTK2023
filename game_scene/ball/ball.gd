@@ -82,3 +82,8 @@ func _physics_process(delta: float) -> void:
 					_drag_state = DragState.IDLE
 	if _drag_state == DragState.ACTIVE:
 		apply_force(linear_velocity * drag_factor)
+
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("ball_collision_notifiable"):
+		body.ball_contact(self)
