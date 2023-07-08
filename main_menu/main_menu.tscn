@@ -64,6 +64,11 @@ layout_mode = 2
 theme = ExtResource("2_liuhe")
 text = "Credits"
 
+[node name="ControlsButton" type="Button" parent="MainMenuButtonContainer"]
+layout_mode = 2
+theme = ExtResource("2_liuhe")
+text = "Controls"
+
 [node name="QuitButton" type="Button" parent="MainMenuButtonContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
@@ -121,6 +126,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
 text = "DESIGN
+
 Zereijin"
 horizontal_alignment = 1
 
@@ -129,6 +135,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
 text = "PROGRAMMING
+
 Hawk777
 doublea999
 Teriyakisaurus"
@@ -139,6 +146,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
 text = "VIDEO/AUDIO
+
 FydaTECH
 Teriyakisaurus"
 horizontal_alignment = 1
@@ -148,7 +156,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
 text = "ADD-ONS
-SmartShape2D by SirRamEsq"
+
+SmartShape2D"
 horizontal_alignment = 1
 
 [node name="CreditsLabelFonts" type="Label" parent="CreditPanel/MarginContainer/VBoxContainer"]
@@ -156,6 +165,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
 text = "FONTS
+
 Keypunch029 by Stewart C. Russell
 ?????"
 horizontal_alignment = 1
@@ -169,7 +179,82 @@ focus_neighbor_bottom = NodePath(".")
 theme = ExtResource("2_liuhe")
 text = "Go Back"
 
+[node name="ControlsPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -150.0
+offset_right = 400.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_liuhe")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqvvs")
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="ObjectiveTitleLabel" type="Label" parent="ControlsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_liuhe")
+text = "
+
+OBJECTIVE"
+horizontal_alignment = 1
+
+[node name="ObjectiveLabel" type="Label" parent="ControlsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_liuhe")
+text = "End the player's game while getting as few points as possible."
+horizontal_alignment = 1
+
+[node name="ControlsTitleLabel" type="Label" parent="ControlsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_liuhe")
+text = "CONTROLS"
+horizontal_alignment = 1
+
+[node name="ControlsLabel" type="Label" parent="ControlsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_liuhe")
+text = "Note: All actions take an amount of meter.
+If you run out of meter, you will lose control until it is refilled.
+
+Arrow Keys: Nudge yourself in a direction
+Space Bar: Hold to slow your velocity"
+horizontal_alignment = 1
+
+[node name="CloseControlsButton" type="Button" parent="ControlsPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+theme = ExtResource("2_liuhe")
+text = "Go Back"
+
 [connection signal="pressed" from="MainMenuButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenuButtonContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenuButtonContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="MainMenuButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
+[connection signal="pressed" from="ControlsPanel/MarginContainer/VBoxContainer/CloseControlsButton" to="." method="_on_close_controls_button_pressed"]
