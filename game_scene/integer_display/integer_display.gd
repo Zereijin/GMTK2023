@@ -11,7 +11,7 @@ var ramp_time := 0.0
 
 ## The underlying display.
 @onready
-var _display := $MarginContainer/ScoreboardDisplay
+var _display: ScoreboardDisplayControl = $MarginContainer/ScoreboardDisplay
 
 ## The last displayed value.
 var _last_displayed := 0
