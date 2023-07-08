@@ -1,5 +1,5 @@
 class_name EndScene
-extends VBoxContainer
+extends CenterContainer
 
 func go(scores: PackedInt64Array, my_score_pos: int) -> void:
 	for i in range(scores.size()):
