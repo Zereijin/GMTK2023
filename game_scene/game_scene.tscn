@@ -1535,3 +1535,5 @@ property = "extra_balls"
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_5qthm")
 autoplay = true
+
+[connection signal="game_over" from="drain" to="." method="_on_game_over"]
