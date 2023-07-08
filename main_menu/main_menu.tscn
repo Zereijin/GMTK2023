@@ -49,15 +49,15 @@ focus_neighbor_top = NodePath("../QuitButton")
 theme = ExtResource("2_liuhe")
 text = "Play"
 
+[node name="ControlsButton" type="Button" parent="MainMenuButtonContainer"]
+layout_mode = 2
+theme = ExtResource("2_liuhe")
+text = "How To Play"
+
 [node name="CreditsButton" type="Button" parent="MainMenuButtonContainer"]
 layout_mode = 2
 theme = ExtResource("2_liuhe")
 text = "Credits"
-
-[node name="ControlsButton" type="Button" parent="MainMenuButtonContainer"]
-layout_mode = 2
-theme = ExtResource("2_liuhe")
-text = "Controls"
 
 [node name="QuitButton" type="Button" parent="MainMenuButtonContainer"]
 layout_mode = 2
@@ -248,7 +248,7 @@ anchor_bottom = 0.5
 offset_left = -400.0
 offset_top = -150.0
 offset_right = 400.0
-offset_bottom = 150.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_liuhe")
@@ -281,7 +281,9 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
-text = "End the player's game while getting as few points as possible."
+text = "As a pinball, you are tired of being knocked up and down and all around.
+End the game as quickly as you can, with as low of a score
+as you can, and maybe the humans will finally leave you alone."
 horizontal_alignment = 1
 
 [node name="ControlsTitleLabel" type="Label" parent="ControlsPanel/MarginContainer/VBoxContainer"]
@@ -299,8 +301,9 @@ theme = ExtResource("2_liuhe")
 text = "Arrow Keys: Nudge yourself in a direction
 Space Bar: Hold to slow your velocity
 
-Note: All actions take an amount of meter.
-If you run out of meter, you will lose control until it is refilled."
+Note: All actions take an amount of willpower.
+If you do not have enough willpower, you
+will not be able to act until it replenishes."
 horizontal_alignment = 1
 
 [node name="CloseControlsButton" type="Button" parent="ControlsPanel/MarginContainer/VBoxContainer"]
@@ -313,8 +316,8 @@ theme = ExtResource("2_liuhe")
 text = "Go Back"
 
 [connection signal="pressed" from="MainMenuButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MainMenuButtonContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenuButtonContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="MainMenuButtonContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenuButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
 [connection signal="pressed" from="ControlsPanel/MarginContainer/VBoxContainer/CloseControlsButton" to="." method="_on_close_controls_button_pressed"]
