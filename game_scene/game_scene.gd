@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	get_tree().paused = false
 	PlayerData.start_game()
 
 func _on_game_over() -> void:
