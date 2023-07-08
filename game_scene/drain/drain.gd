@@ -33,4 +33,4 @@ func _on_body_entered(body: Node2D) -> void:
 		ball.sleeping = false
 		ball.sensitive = true
 	else:
-		pass
+		game_over.emit()
