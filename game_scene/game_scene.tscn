@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dmg85pdsmpox8"]
+[gd_scene load_steps=123 format=3 uid="uid://dmg85pdsmpox8"]
 
 [ext_resource type="PackedScene" uid="uid://c4go7s62rahph" path="res://game_scene/ball/ball.tscn" id="1_ugfsb"]
 [ext_resource type="Script" path="res://game_scene/game_scene.gd" id="1_vtrq5"]
@@ -8,9 +8,10 @@
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="6_fys0u"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="7_gam0c"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="8_c1nll"]
+[ext_resource type="PackedScene" uid="uid://8f7qirule62d" path="res://game_scene/drain/drain.tscn" id="10_3yl1e"]
 [ext_resource type="Script" path="res://game_scene/fuel_manager/fuel_manager.gd" id="11_wdthn"]
 
-[sub_resource type="Resource" id="Resource_m4rre"]
+[sub_resource type="Resource" id="Resource_b4hhm"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -21,9 +22,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(624, 112)
 point_in = Vector2(408, -8)
 point_out = Vector2(96, -104)
-properties = SubResource("Resource_m4rre")
+properties = SubResource("Resource_b4hhm")
 
-[sub_resource type="Resource" id="Resource_cl58w"]
+[sub_resource type="Resource" id="Resource_pl50n"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -34,9 +35,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(960, 16)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_cl58w")
+properties = SubResource("Resource_pl50n")
 
-[sub_resource type="Resource" id="Resource_gobco"]
+[sub_resource type="Resource" id="Resource_iiaur"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -47,9 +48,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(1152, 232)
 point_in = Vector2(-24, -200)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_gobco")
+properties = SubResource("Resource_iiaur")
 
-[sub_resource type="Resource" id="Resource_dr3y0"]
+[sub_resource type="Resource" id="Resource_x1ar1"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -60,9 +61,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(624, 112)
 point_in = Vector2(408, -8)
 point_out = Vector2(96, -104)
-properties = SubResource("Resource_dr3y0")
+properties = SubResource("Resource_x1ar1")
 
-[sub_resource type="Resource" id="Resource_hltvn"]
+[sub_resource type="Resource" id="Resource_obcy2"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -73,9 +74,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(1152, 2008)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_hltvn")
+properties = SubResource("Resource_obcy2")
 
-[sub_resource type="Resource" id="Resource_880g6"]
+[sub_resource type="Resource" id="Resource_ipa2h"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -86,9 +87,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(768, 2008)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_880g6")
+properties = SubResource("Resource_ipa2h")
 
-[sub_resource type="Resource" id="Resource_iqp4s"]
+[sub_resource type="Resource" id="Resource_l0tqv"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -99,9 +100,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(1056, 1888)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_iqp4s")
+properties = SubResource("Resource_l0tqv")
 
-[sub_resource type="Resource" id="Resource_2mn4o"]
+[sub_resource type="Resource" id="Resource_x813k"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -112,7 +113,7 @@ script = ExtResource("6_fys0u")
 position = Vector2(1056, 328)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_2mn4o")
+properties = SubResource("Resource_x813k")
 
 [sub_resource type="Resource" id="Resource_u8xyx"]
 script = ExtResource("7_gam0c")
@@ -148,7 +149,7 @@ fill_texture_show_behind_parent = false
 fill_mesh_offset = 0.0
 render_offset = 0.0
 
-[sub_resource type="Resource" id="Resource_d0gct"]
+[sub_resource type="Resource" id="Resource_f7rdf"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -159,9 +160,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(0, -176)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_d0gct")
+properties = SubResource("Resource_f7rdf")
 
-[sub_resource type="Resource" id="Resource_jbxwf"]
+[sub_resource type="Resource" id="Resource_sqacx"]
 script = ExtResource("5_jihvj")
 texture_idx = -15
 flip = false
@@ -172,9 +173,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(1344, -176)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_jbxwf")
+properties = SubResource("Resource_sqacx")
 
-[sub_resource type="Resource" id="Resource_1ot03"]
+[sub_resource type="Resource" id="Resource_ow4fr"]
 script = ExtResource("5_jihvj")
 texture_idx = 4
 flip = false
@@ -185,9 +186,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(1344, 2008)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_1ot03")
+properties = SubResource("Resource_ow4fr")
 
-[sub_resource type="Resource" id="Resource_3qq4s"]
+[sub_resource type="Resource" id="Resource_3p8cd"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -198,9 +199,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(0, -176)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_3qq4s")
+properties = SubResource("Resource_3p8cd")
 
-[sub_resource type="Resource" id="Resource_ab7db"]
+[sub_resource type="Resource" id="Resource_52kde"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -211,9 +212,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(1248, 2008)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_ab7db")
+properties = SubResource("Resource_52kde")
 
-[sub_resource type="Resource" id="Resource_du1ms"]
+[sub_resource type="Resource" id="Resource_udf6g"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -224,9 +225,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(1248, 328)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_du1ms")
+properties = SubResource("Resource_udf6g")
 
-[sub_resource type="Resource" id="Resource_micyv"]
+[sub_resource type="Resource" id="Resource_0kjlu"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -237,9 +238,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(960, -80)
 point_in = Vector2(336, 16)
 point_out = Vector2(-408, -8)
-properties = SubResource("Resource_micyv")
+properties = SubResource("Resource_0kjlu")
 
-[sub_resource type="Resource" id="Resource_cvh2k"]
+[sub_resource type="Resource" id="Resource_u1r0k"]
 script = ExtResource("5_jihvj")
 texture_idx = -5
 flip = false
@@ -250,9 +251,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(96, 328)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_cvh2k")
+properties = SubResource("Resource_u1r0k")
 
-[sub_resource type="Resource" id="Resource_c0a3a"]
+[sub_resource type="Resource" id="Resource_6ekhh"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -263,9 +264,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(96, 1888)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_c0a3a")
+properties = SubResource("Resource_6ekhh")
 
-[sub_resource type="Resource" id="Resource_vecyk"]
+[sub_resource type="Resource" id="Resource_rri10"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -276,9 +277,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(384, 2008)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_vecyk")
+properties = SubResource("Resource_rri10")
 
-[sub_resource type="Resource" id="Resource_jmyor"]
+[sub_resource type="Resource" id="Resource_1mcgd"]
 script = ExtResource("5_jihvj")
 texture_idx = 5
 flip = false
@@ -289,9 +290,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(0, 2008)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_jmyor")
+properties = SubResource("Resource_1mcgd")
 
-[sub_resource type="Resource" id="Resource_efymr"]
+[sub_resource type="Resource" id="Resource_vk4dk"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -302,7 +303,7 @@ script = ExtResource("6_fys0u")
 position = Vector2(528, 112)
 point_in = Vector2(0, 0)
 point_out = Vector2(-408, -8)
-properties = SubResource("Resource_efymr")
+properties = SubResource("Resource_vk4dk")
 
 [sub_resource type="Resource" id="Resource_o2ok5"]
 script = ExtResource("7_gam0c")
@@ -343,46 +344,7 @@ fill_texture_show_behind_parent = false
 fill_mesh_offset = 0.0
 render_offset = 0.0
 
-[sub_resource type="Resource" id="Resource_n7m2b"]
-script = ExtResource("5_jihvj")
-texture_idx = 0
-flip = false
-width = 1.0
-
-[sub_resource type="Resource" id="Resource_uo7pd"]
-script = ExtResource("6_fys0u")
-position = Vector2(384, 1864)
-point_in = Vector2(0, 0)
-point_out = Vector2(0, 0)
-properties = SubResource("Resource_n7m2b")
-
-[sub_resource type="Resource" id="Resource_llenq"]
-script = ExtResource("5_jihvj")
-texture_idx = 0
-flip = false
-width = 1.0
-
-[sub_resource type="Resource" id="Resource_7t8xa"]
-script = ExtResource("6_fys0u")
-position = Vector2(240, 1792)
-point_in = Vector2(0, 0)
-point_out = Vector2(0, 0)
-properties = SubResource("Resource_llenq")
-
-[sub_resource type="Resource" id="Resource_lb14u"]
-script = ExtResource("5_jihvj")
-texture_idx = 0
-flip = false
-width = 1.0
-
-[sub_resource type="Resource" id="Resource_rp17q"]
-script = ExtResource("6_fys0u")
-position = Vector2(240, 1624)
-point_in = Vector2(0, 0)
-point_out = Vector2(0, 0)
-properties = SubResource("Resource_lb14u")
-
-[sub_resource type="Resource" id="Resource_f6oht"]
+[sub_resource type="Resource" id="Resource_1vcgj"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -393,9 +355,48 @@ script = ExtResource("6_fys0u")
 position = Vector2(384, 1864)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_f6oht")
+properties = SubResource("Resource_1vcgj")
 
-[sub_resource type="Resource" id="Resource_mcb2l"]
+[sub_resource type="Resource" id="Resource_366o1"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_uo7pd"]
+script = ExtResource("6_fys0u")
+position = Vector2(384, 1864)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_366o1")
+
+[sub_resource type="Resource" id="Resource_eo72q"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_7t8xa"]
+script = ExtResource("6_fys0u")
+position = Vector2(240, 1792)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_eo72q")
+
+[sub_resource type="Resource" id="Resource_4qxbh"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_rp17q"]
+script = ExtResource("6_fys0u")
+position = Vector2(240, 1624)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_4qxbh")
+
+[sub_resource type="Resource" id="Resource_psciw"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -406,9 +407,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(192, 1624)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_mcb2l")
+properties = SubResource("Resource_psciw")
 
-[sub_resource type="Resource" id="Resource_uug0y"]
+[sub_resource type="Resource" id="Resource_oh028"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -419,9 +420,9 @@ script = ExtResource("6_fys0u")
 position = Vector2(192, 1840)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_uug0y")
+properties = SubResource("Resource_oh028")
 
-[sub_resource type="Resource" id="Resource_g1hj0"]
+[sub_resource type="Resource" id="Resource_v4pq8"]
 script = ExtResource("5_jihvj")
 texture_idx = 0
 flip = false
@@ -432,7 +433,7 @@ script = ExtResource("6_fys0u")
 position = Vector2(384, 1936)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_g1hj0")
+properties = SubResource("Resource_v4pq8")
 
 [sub_resource type="Resource" id="Resource_x10ej"]
 script = ExtResource("7_gam0c")
@@ -461,6 +462,331 @@ gradient = SubResource("Gradient_iklx6")
 script = ExtResource("8_c1nll")
 _edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([])
 fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_gf0dt")])
+fill_texture_z_index = -10
+fill_texture_show_behind_parent = false
+fill_mesh_offset = 0.0
+render_offset = 0.0
+
+[sub_resource type="Resource" id="Resource_qe70k"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_o373p"]
+script = ExtResource("6_fys0u")
+position = Vector2(768, 1864)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_qe70k")
+
+[sub_resource type="Resource" id="Resource_ndnv7"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_6ub77"]
+script = ExtResource("6_fys0u")
+position = Vector2(768, 1864)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_ndnv7")
+
+[sub_resource type="Resource" id="Resource_hufbv"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_ioynl"]
+script = ExtResource("6_fys0u")
+position = Vector2(912, 1624)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_hufbv")
+
+[sub_resource type="Resource" id="Resource_03vcu"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_aeg1r"]
+script = ExtResource("6_fys0u")
+position = Vector2(960, 1624)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_03vcu")
+
+[sub_resource type="Resource" id="Resource_1odj8"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_rwof6"]
+script = ExtResource("6_fys0u")
+position = Vector2(960, 1840)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_1odj8")
+
+[sub_resource type="Resource" id="Resource_0jtmp"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_3ql8q"]
+script = ExtResource("6_fys0u")
+position = Vector2(768, 1936)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_0jtmp")
+
+[sub_resource type="Resource" id="Resource_wdo1n"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_r5mwk"]
+script = ExtResource("6_fys0u")
+position = Vector2(912, 1792)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_wdo1n")
+
+[sub_resource type="Resource" id="Resource_jrjn0"]
+script = ExtResource("7_gam0c")
+_points = {
+0: SubResource("Resource_o373p"),
+8: SubResource("Resource_6ub77"),
+12: SubResource("Resource_ioynl"),
+13: SubResource("Resource_aeg1r"),
+14: SubResource("Resource_rwof6"),
+15: SubResource("Resource_3ql8q"),
+16: SubResource("Resource_r5mwk")
+}
+_point_order = Array[int]([0, 16, 12, 13, 14, 15, 8])
+_constraints = {
+Array[int]([8, 0]): 15
+}
+_next_key = 17
+_material_overrides = {}
+
+[sub_resource type="Gradient" id="Gradient_prjtc"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_udmux"]
+gradient = SubResource("Gradient_prjtc")
+
+[sub_resource type="Resource" id="Resource_v8jqe"]
+script = ExtResource("8_c1nll")
+_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([])
+fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_udmux")])
+fill_texture_z_index = -10
+fill_texture_show_behind_parent = false
+fill_mesh_offset = 0.0
+render_offset = 0.0
+
+[sub_resource type="Resource" id="Resource_cma6m"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_hvc8c"]
+script = ExtResource("6_fys0u")
+position = Vector2(768, 2008)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_cma6m")
+
+[sub_resource type="Resource" id="Resource_ewcoc"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_ep7rk"]
+script = ExtResource("6_fys0u")
+position = Vector2(384, 2008)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_ewcoc")
+
+[sub_resource type="Resource" id="Resource_i7suf"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_hijx6"]
+script = ExtResource("6_fys0u")
+position = Vector2(384, 2080)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_i7suf")
+
+[sub_resource type="Resource" id="Resource_omyu7"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_hpnnd"]
+script = ExtResource("6_fys0u")
+position = Vector2(768, 2008)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_omyu7")
+
+[sub_resource type="Resource" id="Resource_8issa"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_k2wy8"]
+script = ExtResource("6_fys0u")
+position = Vector2(168, 2080)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_8issa")
+
+[sub_resource type="Resource" id="Resource_ig5jo"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_sv1a7"]
+script = ExtResource("6_fys0u")
+position = Vector2(168, 2896)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_ig5jo")
+
+[sub_resource type="Resource" id="Resource_0ig67"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_nvbr1"]
+script = ExtResource("6_fys0u")
+position = Vector2(984, 2896)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_0ig67")
+
+[sub_resource type="Resource" id="Resource_kjp7o"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_4m3ra"]
+script = ExtResource("6_fys0u")
+position = Vector2(0, 2008)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_kjp7o")
+
+[sub_resource type="Resource" id="Resource_o4syc"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_qu26k"]
+script = ExtResource("6_fys0u")
+position = Vector2(0, 3064)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_o4syc")
+
+[sub_resource type="Resource" id="Resource_8v5lq"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_3m3ut"]
+script = ExtResource("6_fys0u")
+position = Vector2(984, 2080)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_8v5lq")
+
+[sub_resource type="Resource" id="Resource_cckoh"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_ieeh2"]
+script = ExtResource("6_fys0u")
+position = Vector2(768, 2080)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_cckoh")
+
+[sub_resource type="Resource" id="Resource_jy04p"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_w1hr4"]
+script = ExtResource("6_fys0u")
+position = Vector2(1344, 3064)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_jy04p")
+
+[sub_resource type="Resource" id="Resource_238ge"]
+script = ExtResource("5_jihvj")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_tp3vx"]
+script = ExtResource("6_fys0u")
+position = Vector2(1344, 2008)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_238ge")
+
+[sub_resource type="Resource" id="Resource_msu47"]
+script = ExtResource("7_gam0c")
+_points = {
+0: SubResource("Resource_hvc8c"),
+1: SubResource("Resource_ep7rk"),
+2: SubResource("Resource_hijx6"),
+3: SubResource("Resource_hpnnd"),
+4: SubResource("Resource_k2wy8"),
+5: SubResource("Resource_sv1a7"),
+6: SubResource("Resource_nvbr1"),
+9: SubResource("Resource_4m3ra"),
+10: SubResource("Resource_qu26k"),
+11: SubResource("Resource_3m3ut"),
+12: SubResource("Resource_ieeh2"),
+13: SubResource("Resource_w1hr4"),
+14: SubResource("Resource_tp3vx")
+}
+_point_order = Array[int]([0, 14, 13, 10, 9, 1, 2, 4, 5, 6, 11, 12, 3])
+_constraints = {
+Array[int]([0, 3]): 15
+}
+_next_key = 15
+_material_overrides = {}
+
+[sub_resource type="Resource" id="Resource_sn44u"]
+script = ExtResource("8_c1nll")
+_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([])
+fill_textures = Array[Texture2D]([])
 fill_texture_z_index = -10
 fill_texture_show_behind_parent = false
 fill_mesh_offset = 0.0
@@ -532,6 +858,32 @@ collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 modulate = Color(1, 1, 1, 0.3)
 polygon = PackedVector2Array(384.064, 1863.96, 384.125, 1936.2, 191.936, 1840.04, 191.896, 1623.9, 240.104, 1623.9, 240.064, 1791.96)
 
+[node name="right_gutter" type="StaticBody2D" parent="walls"]
+
+[node name="SS2D_Shape_Closed" type="Node2D" parent="walls/right_gutter"]
+script = ExtResource("4_5o0n3")
+_points = SubResource("Resource_jrjn0")
+shape_material = SubResource("Resource_v8jqe")
+collision_polygon_node_path = NodePath("../CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/right_gutter"]
+visible = false
+modulate = Color(1, 1, 1, 0.3)
+polygon = PackedVector2Array(767.936, 1863.96, 911.936, 1791.96, 911.896, 1623.9, 960.104, 1623.9, 960.064, 1840.04, 767.875, 1936.2)
+
+[node name="drain_walls" type="StaticBody2D" parent="walls"]
+
+[node name="SS2D_Shape_Closed" type="Node2D" parent="walls/drain_walls"]
+script = ExtResource("4_5o0n3")
+_points = SubResource("Resource_msu47")
+shape_material = SubResource("Resource_sn44u")
+collision_polygon_node_path = NodePath("../CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/drain_walls"]
+visible = false
+modulate = Color(1, 1, 1, 0.3)
+polygon = PackedVector2Array(767.896, 2007.9, 1344.1, 2007.9, 1344.1, 3064.1, -0.103544, 3064.1, -0.103547, 2007.9, 384.104, 2007.9, 384.104, 2080.1, 168.104, 2080.1, 168.104, 2895.9, 983.896, 2895.9, 983.896, 2080.1, 767.896, 2080.1)
+
 [node name="flippers" type="Node2D" parent="."]
 z_index = -12
 position = Vector2(-576, -1000)
@@ -540,3 +892,13 @@ position = Vector2(-576, -1000)
 position = Vector2(360, 1888)
 rotation = 0.349066
 scale = Vector2(0.5, 0.5)
+
+[node name="main_right_flipper" parent="flippers" instance=ExtResource("4_i2xwj")]
+position = Vector2(792, 1888)
+rotation = -0.349066
+scale = Vector2(-0.5, 0.5)
+
+[node name="drain" parent="." node_paths=PackedStringArray("fuel_manager", "ball") instance=ExtResource("10_3yl1e")]
+position = Vector2(0, 1080)
+fuel_manager = NodePath("../fuel_manager")
+ball = NodePath("../ball")
