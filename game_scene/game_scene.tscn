@@ -1432,6 +1432,7 @@ offset_left = 278.0
 offset_right = 607.0
 offset_bottom = 107.0
 property = "score"
+ramp_time = 2.0
 
 [node name="extra_balls_display" parent="hud" instance=ExtResource("16_61bdh")]
 offset_left = 685.0
