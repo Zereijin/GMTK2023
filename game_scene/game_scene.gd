@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready() -> void:
+	PlayerData.start_game()
+
 func _on_game_over() -> void:
 	get_tree().paused = true
 	var low_score_data := PlayerData.end_game()

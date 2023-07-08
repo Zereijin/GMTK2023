@@ -58,18 +58,16 @@ var low_score_count := 3
 var low_score_missing := 999999999999999
 
 ## The current score.
-var score := 0
+var score: int
 
 ## Whether the current plunger activation is the first of this ball.
-var first_launch := true
+var first_launch: bool
 
 ## The current balance of fuel.
-@onready
-var fuel_current := fuel_maximum
+var fuel_current: float
 
 ## The number of extra balls remaining.
-@onready
-var extra_balls := total_balls - 1
+var extra_balls: int
 
 func _physics_process(delta: float) -> void:
 	var old := fuel_current
@@ -159,6 +157,16 @@ func end_game() -> Array:
 	var pos := insert_lowest_score(scores, score)
 	write_lowest_scores(scores)
 	return [scores, pos]
+
+## Sets up the start-of-game condition.
+func start_game() -> void:
+	score = 0
+	first_launch = true
+	fuel_current = fuel_maximum
+	extra_balls = total_balls - 1
+	fuel_changed.emit(fuel_current)
+	extra_balls_changed.emit(extra_balls)
+	score_changed.emit(score)
 
 ## Tries to consume a quantity of fuel, returning true on success or false if not enough was
 ## available.
