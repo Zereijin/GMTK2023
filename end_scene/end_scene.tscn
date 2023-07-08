@@ -37,12 +37,15 @@ text = "High Scores"
 
 [node name="score0" type="Label" parent="VBoxContainer/scores"]
 layout_mode = 2
+theme = ExtResource("2_ga78b")
 
 [node name="score1" type="Label" parent="VBoxContainer/scores"]
 layout_mode = 2
+theme = ExtResource("2_ga78b")
 
 [node name="score2" type="Label" parent="VBoxContainer/scores"]
 layout_mode = 2
+theme = ExtResource("2_ga78b")
 
 [node name="buttons" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
