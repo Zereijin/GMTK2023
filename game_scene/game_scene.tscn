@@ -1,4 +1,4 @@
-[gd_scene load_steps=178 format=3 uid="uid://dmg85pdsmpox8"]
+[gd_scene load_steps=179 format=3 uid="uid://dmg85pdsmpox8"]
 
 [ext_resource type="PackedScene" uid="uid://c4go7s62rahph" path="res://game_scene/ball/ball.tscn" id="1_ugfsb"]
 [ext_resource type="Script" path="res://game_scene/game_scene.gd" id="1_vtrq5"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bthsfh1lr76di" path="res://game_scene/integer_display/integer_display.tscn" id="16_61bdh"]
 [ext_resource type="PackedScene" uid="uid://b6n3vq51hl2gb" path="res://game_scene/fuel_gauge/fuel_gauge.tscn" id="16_f033c"]
 [ext_resource type="FontFile" uid="uid://dhyodwt8a8awi" path="res://fonts/keypunch029/Keypunch029-Bold.otf" id="17_dd7r4"]
+[ext_resource type="PackedScene" uid="uid://bbmike0vj57v7" path="res://end_scene/end_scene.tscn" id="19_5wpqy"]
 [ext_resource type="PackedScene" uid="uid://bnbynmc7vcs5n" path="res://game_scene/bumper/bumper.tscn" id="19_rjsla"]
 
 [sub_resource type="Resource" id="Resource_afrkx"]
@@ -1530,6 +1531,13 @@ vertical_alignment = 1
 [node name="extra_balls_display" parent="hud/Control/ball_display_container/HBoxContainer" instance=ExtResource("16_61bdh")]
 layout_mode = 2
 property = "extra_balls"
+
+[node name="end_scene" parent="hud" instance=ExtResource("19_5wpqy")]
+visible = false
+offset_left = 548.0
+offset_top = 324.0
+offset_right = 579.0
+offset_bottom = 436.0
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_5qthm")
