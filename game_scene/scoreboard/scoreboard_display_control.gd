@@ -9,7 +9,7 @@ var raw_text = "0": set = _set_raw_text
 enum AnimationTypes {
 	# Default state where we don't do strange things with the display
 	NONE,
-	
+
 	# We'll scroll the display of text
 	SCROLL
 }
@@ -84,7 +84,7 @@ func _on_animation_timer():
 		scroll_offset = ( scroll_offset + 1 ) % get_characters_max()
 		update_text()
 
-func update_text():	
+func update_text():
 	# Find out what the maximum length of the display (which can also
 	# be the max length of the text
 	var max_length = get_characters_max()
@@ -100,15 +100,15 @@ func update_text():
 			base_string = " ".repeat(required_padding) + raw_text
 		else:
 			base_string = raw_text + " ".repeat(scroll_padding)
-		
+
 		# Then move the offset and pull out the text to rotate
 		var scrolled_text = base_string.repeat(2).substr(scroll_offset, max_length)
-		
+
 		self.text = scrolled_text
-		
+
 	# None: no special animation required
 	else:
 		self.text = raw_text.substr(0, max_length)
-	
+
 
 
