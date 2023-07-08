@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnbynmc7vcs5n"]
+
+[ext_resource type="Script" path="res://game_scene/bumper/bumper.gd" id="1_sj2aa"]
+[ext_resource type="AudioStream" uid="uid://biqid1ixn6fjd" path="res://game_scene/flipper/flipper_press.ogg" id="2_6t6cr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gv3p"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"bump",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55yo0"]
+size = Vector2(41.625, 164)
+
+[node name="bumper" type="StaticBody2D"]
+script = ExtResource("1_sj2aa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4gv3p")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_55yo0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_6t6cr")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
