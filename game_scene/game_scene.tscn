@@ -1467,7 +1467,6 @@ ball = NodePath("../ball")
 [node name="hud" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="hud"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
