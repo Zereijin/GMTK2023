@@ -1,5 +1,13 @@
 extends StaticBody2D
 
+## How much impulse to apply to the ball when it touches the bumper.
+@export_range(100.0, 1000000.0, 100.0)
+var impulse := 1000.0
+
+## The impulse vector to apply to the ball when it touches the bumper.
+@onready
+var _impulse_vector := Vector2.from_angle(rotation) * impulse
+
 func _ready():
 	$AnimatedSprite2D.play("idle")
 
@@ -20,3 +28,6 @@ func ball_contact(ball: Ball) -> void:
 	var rng = RandomNumberGenerator.new()
 	$AudioStreamPlayer2D.pitch_scale = rng.randf_range(0.943874, 1.059463)*.8
 	$AudioStreamPlayer2D.play()
+
+	# Push the ball.
+	ball.apply_impulse(_impulse_vector)
