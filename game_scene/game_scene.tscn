@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=3 uid="uid://dmg85pdsmpox8"]
+[gd_scene load_steps=178 format=3 uid="uid://dmg85pdsmpox8"]
 
 [ext_resource type="PackedScene" uid="uid://c4go7s62rahph" path="res://game_scene/ball/ball.tscn" id="1_ugfsb"]
 [ext_resource type="Script" path="res://game_scene/game_scene.gd" id="1_vtrq5"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bthsfh1lr76di" path="res://game_scene/integer_display/integer_display.tscn" id="16_61bdh"]
 [ext_resource type="PackedScene" uid="uid://b6n3vq51hl2gb" path="res://game_scene/fuel_gauge/fuel_gauge.tscn" id="16_f033c"]
 [ext_resource type="FontFile" uid="uid://dhyodwt8a8awi" path="res://fonts/keypunch029/Keypunch029-Bold.otf" id="17_dd7r4"]
+[ext_resource type="PackedScene" uid="uid://bnbynmc7vcs5n" path="res://game_scene/bumper/bumper.tscn" id="19_rjsla"]
 
 [sub_resource type="Resource" id="Resource_afrkx"]
 script = ExtResource("5_jihvj")
@@ -1425,6 +1426,8 @@ position = Vector2(618, 977)
 position = Vector2(0, 1080)
 ball = NodePath("../ball")
 
+[node name="bumper" parent="." instance=ExtResource("19_rjsla")]
+
 [node name="hud" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="hud"]
@@ -1436,7 +1439,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="fuel_gauge_container" type="PanelContainer" parent="hud/Control"]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 55)
 layout_mode = 1
 offset_right = 14.0
 offset_bottom = 14.0
