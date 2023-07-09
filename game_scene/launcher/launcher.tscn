@@ -41,6 +41,8 @@ texture = ExtResource("2_nod1h")
 
 [node name="fire_player" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_vcpun")
+bus = &"SFX"
 
 [node name="pullback_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vtwmy")
+bus = &"SFX"
