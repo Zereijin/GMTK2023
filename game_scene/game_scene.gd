@@ -30,6 +30,8 @@ func _ready() -> void:
 
 func _on_game_over() -> void:
 	get_tree().paused = true
+	$confetti_cannon_left.fire()
+	$confetti_cannon_right.fire()
 	var low_score_data := PlayerData.end_game()
 	$hud/end_scene.go(low_score_data[0], low_score_data[1])
 
@@ -39,6 +41,8 @@ func _on_extra_ball_earned() -> void:
 
 func _on_drained() -> void:
 	scoreboard.override_message(drain_message)
+	$confetti_cannon_left.fire()
+	$confetti_cannon_right.fire()
 
 func _on_relaunched() -> void:
 	scoreboard.enqueue_message(relaunch_message)
