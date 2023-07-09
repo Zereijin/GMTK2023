@@ -86,7 +86,7 @@ focus_neighbor_bottom = NodePath("../retry_button")
 focus_next = NodePath("../retry_button")
 focus_previous = NodePath("../mainmenu_button")
 theme = ExtResource("2_ga78b")
-text = "Exit"
+text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/buttons/retry_button" to="." method="_try_again"]
 [connection signal="pressed" from="VBoxContainer/buttons/mainmenu_button" to="." method="_main_menu"]
