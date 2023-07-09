@@ -486,6 +486,7 @@ scale = Vector2(3, 3)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_55xkq")
+volume_db = -3.117
 autoplay = true
 bus = &"Music"
 
