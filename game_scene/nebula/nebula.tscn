@@ -11,18 +11,24 @@ fractal_lacunarity = 1.811
 fractal_gain = 0.437
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ggp4m"]
+width = 1024
+height = 1024
 seamless = true
 noise = SubResource("FastNoiseLite_jqnmn")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i3tub"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ytr4r"]
+width = 1024
+height = 1024
 seamless = true
 noise = SubResource("FastNoiseLite_i3tub")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oslvi"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h4qt3"]
+width = 1024
+height = 1024
 seamless = true
 noise = SubResource("FastNoiseLite_oslvi")
 
