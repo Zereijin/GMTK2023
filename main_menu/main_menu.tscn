@@ -45,23 +45,45 @@ theme_override_constants/separation = 20
 
 [node name="PlayButton" type="Button" parent="MainMenuButtonContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../QuitButton")
 focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../ControlsButton")
+focus_neighbor_bottom = NodePath("../ControlsButton")
+focus_next = NodePath("../ControlsButton")
+focus_previous = NodePath("../QuitButton")
 theme = ExtResource("2_liuhe")
 text = "Play"
 
 [node name="ControlsButton" type="Button" parent="MainMenuButtonContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../PlayButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../PlayButton")
 theme = ExtResource("2_liuhe")
 text = "How To Play"
 
 [node name="CreditsButton" type="Button" parent="MainMenuButtonContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../ControlsButton")
+focus_neighbor_top = NodePath("../ControlsButton")
+focus_neighbor_right = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../ControlsButton")
 theme = ExtResource("2_liuhe")
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="MainMenuButtonContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../CreditsButton")
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_right = NodePath("../PlayButton")
 focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
 theme = ExtResource("2_liuhe")
 text = "Quit"
 

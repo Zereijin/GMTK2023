@@ -7,6 +7,7 @@ func go(scores: PackedInt64Array, my_score_pos: int) -> void:
 		label.text = str(scores[i])
 		label.fancy = i == my_score_pos
 	visible = true
+	$VBoxContainer/buttons/retry_button.grab_focus()
 
 func _try_again() -> void:
 	get_tree().change_scene_to_file("res://game_scene/game_scene.tscn")
