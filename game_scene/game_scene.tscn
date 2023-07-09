@@ -1177,6 +1177,10 @@ bg_color = Color(0.265625, 0.230469, 0.355469, 1)
 
 [node name="game_scene" type="Node2D" node_paths=PackedStringArray("scoreboard")]
 script = ExtResource("1_vtrq5")
+drain_message = "BALL OUT"
+relaunch_message = "RELAUNCH BONUS"
+kickout_message = "HOLE BONUS"
+extra_ball_message = "FREE BALL"
 scoreboard = NodePath("hud/Control/score_display")
 metadata/_edit_vertical_guides_ = [0.0, -480.0, 384.0, -192.0, 192.0, -384.0, 576.0, -576.0, 480.0, 672.0, 768.0]
 metadata/_edit_horizontal_guides_ = [912.0, -984.0, -888.0, 1008.0, -500.0, 0.0, 500.0, -1080.0, -1176.0]
