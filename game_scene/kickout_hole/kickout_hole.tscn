@@ -46,11 +46,14 @@ shape = SubResource("CircleShape2D_eq3pw")
 
 [node name="captureAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_fptib")
+bus = &"SFX"
 
 [node name="bonusAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_m7822")
+bus = &"SFX"
 
 [node name="kickAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_yk5lb")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1621,6 +1621,7 @@ visible = false
 
 [node name="extra_ball_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_7ru0g")
+bus = &"SFX"
 
 [connection signal="relaunched" from="launcher" to="." method="_on_relaunched"]
 [connection signal="drained" from="drain" to="." method="_on_drained"]
