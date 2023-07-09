@@ -490,6 +490,7 @@ bus = &"Music"
 [connection signal="pressed" from="MainMenuButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
 [connection signal="pressed" from="ControlsPanel/MarginContainer/VBoxContainer/CloseControlsButton" to="." method="_on_close_controls_button_pressed"]
+[connection signal="closed" from="SoundPanel" to="." method="_on_sound_panel_closed"]
 [connection signal="closed" from="LowScoresPanel" to="." method="_on_low_scores_panel_closed"]
 [connection signal="pressed" from="LowScoresPanel/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="LowScoresPanel" method="_close"]
 [connection signal="pressed" from="LowScoresPanel/MarginContainer/VBoxContainer/HBoxContainer/ClearScoresButton" to="LowScoresPanel" method="_clear_and_close"]
