@@ -24,8 +24,6 @@ func _ready():
 		if slider != null:
 			slider.set_value_no_signal(_linear_to_perceptual(_decibel_to_linear( \
 				AudioServer.get_bus_volume_db(bus))))
-		else:
-			print("No slider for " + AudioServer.get_bus_name(bus))
 
 func _on_play_button_pressed():
 	var error := get_tree().change_scene_to_packed(start_scene)
