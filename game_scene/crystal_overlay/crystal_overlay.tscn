@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://66n0siqa7ic0"]
+
+[ext_resource type="Shader" path="res://game_scene/crystal_overlay/crystal_overlay.gdshader" id="1_8sj1w"]
+[ext_resource type="Texture2D" uid="uid://udm06146xaeo" path="res://game_scene/table_crystal_overlay.png" id="2_kmgjm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3dy4n"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vr72g"]
+seamless = true
+noise = SubResource("FastNoiseLite_3dy4n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf0xb"]
+shader = ExtResource("1_8sj1w")
+shader_parameter/noise = SubResource("NoiseTexture2D_vr72g")
+
+[node name="crystal_overlay" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_yf0xb")
+position = Vector2(577, 390.444)
+scale = Vector2(1.18704, 1.18704)
+texture = ExtResource("2_kmgjm")
