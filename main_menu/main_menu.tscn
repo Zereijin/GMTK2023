@@ -206,15 +206,33 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
 theme_type_variation = &"HeaderMedium"
-text = "Video/Audio:"
+text = "Art & Audio:"
 horizontal_alignment = 1
 
 [node name="CreditsLabel4" type="Label" parent="CreditPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
-text = "FydaTECH
-Teriyakisaurus"
+text = "FydaTECH"
+horizontal_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CreditPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CreditsLabel3" type="Label" parent="CreditPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_liuhe")
+theme_type_variation = &"HeaderMedium"
+text = "Shaders:"
+horizontal_alignment = 1
+
+[node name="CreditsLabel4" type="Label" parent="CreditPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_liuhe")
+text = "Teriyakisaurus"
 horizontal_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CreditPanel/MarginContainer/VBoxContainer"]
