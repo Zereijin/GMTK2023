@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d16qd818ockuk"]
 
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="1_jp8uw"]
-[ext_resource type="Script" path="res://main_menu/sound_panel.gd" id="2_faqe3"]
+[ext_resource type="Script" path="res://sound_panel/sound_panel.gd" id="2_x2cok"]
 [ext_resource type="AudioStream" uid="uid://lkbkapalspkk" path="res://game_scene/flipper/flipper_press.ogg" id="3_d5kqb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqvvs"]
@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_jp8uw")
 theme_override_styles/panel = SubResource("StyleBoxFlat_qqvvs")
-script = ExtResource("2_faqe3")
+script = ExtResource("2_x2cok")
 
 [node name="PreviewSounds" type="Node" parent="."]
 
