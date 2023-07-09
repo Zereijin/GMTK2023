@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu15byho1mtbo"]
+
+[ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="1_cal54"]
+[ext_resource type="Script" path="res://game_scene/pause_menu/pause_menu.gd" id="1_jbqiq"]
+[ext_resource type="PackedScene" uid="uid://d16qd818ockuk" path="res://sound_panel/sound_panel.tscn" id="3_xjiwi"]
+
+[node name="pause_menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jbqiq")
+
+[node name="dimmer" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.376471)
+
+[node name="buttons" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 521.0
+offset_top = 194.0
+offset_right = 631.0
+offset_bottom = 454.0
+theme_override_constants/separation = 20
+
+[node name="resume" type="Button" parent="buttons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../quit")
+focus_neighbor_top = NodePath("../quit")
+focus_neighbor_right = NodePath("../sound")
+focus_neighbor_bottom = NodePath("../sound")
+focus_next = NodePath("../sound")
+focus_previous = NodePath("../quit")
+theme = ExtResource("1_cal54")
+text = "Resume"
+
+[node name="sound" type="Button" parent="buttons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../resume")
+focus_neighbor_top = NodePath("../resume")
+focus_neighbor_right = NodePath("../restart")
+focus_neighbor_bottom = NodePath("../restart")
+focus_next = NodePath("../restart")
+focus_previous = NodePath("../resume")
+theme = ExtResource("1_cal54")
+text = "Sound
+"
+
+[node name="restart" type="Button" parent="buttons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../sound")
+focus_neighbor_top = NodePath("../sound")
+focus_neighbor_right = NodePath("../menu")
+focus_neighbor_bottom = NodePath("../menu")
+focus_next = NodePath("../menu")
+focus_previous = NodePath("../sound")
+theme = ExtResource("1_cal54")
+text = "Restart"
+
+[node name="menu" type="Button" parent="buttons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../restart")
+focus_neighbor_top = NodePath("../restart")
+focus_neighbor_right = NodePath("../quit")
+focus_neighbor_bottom = NodePath("../quit")
+focus_next = NodePath("../quit")
+focus_previous = NodePath("../restart")
+theme = ExtResource("1_cal54")
+text = "Main Menu"
+
+[node name="quit" type="Button" parent="buttons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../menu")
+focus_neighbor_top = NodePath("../menu")
+focus_neighbor_right = NodePath("../resume")
+focus_neighbor_bottom = NodePath("../resume")
+focus_next = NodePath("../resume")
+focus_previous = NodePath("../menu")
+theme = ExtResource("1_cal54")
+text = "Quit"
+
+[node name="sound_panel" parent="." instance=ExtResource("3_xjiwi")]
+visible = false
+layout_mode = 1
+offset_top = -175.0
+offset_bottom = 175.0
+
+[connection signal="pressed" from="buttons/resume" to="." method="_resume"]
+[connection signal="pressed" from="buttons/sound" to="." method="_open_sound_panel"]
+[connection signal="pressed" from="buttons/restart" to="." method="_restart"]
+[connection signal="pressed" from="buttons/menu" to="." method="_go_to_menu"]
+[connection signal="pressed" from="buttons/quit" to="." method="_quit"]
+[connection signal="closed" from="sound_panel" to="." method="_sound_panel_closed"]
