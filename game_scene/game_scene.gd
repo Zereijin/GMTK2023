@@ -39,6 +39,7 @@ func _on_extra_ball_earned() -> void:
 
 func _on_drained() -> void:
 	scoreboard.override_message(drain_message)
+	$confetti_cannon.fire()
 
 func _on_relaunched() -> void:
 	scoreboard.enqueue_message(relaunch_message)
