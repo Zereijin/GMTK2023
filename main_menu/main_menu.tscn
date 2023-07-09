@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw4g4sqrid6dl"]
+[gd_scene load_steps=10 format=3 uid="uid://bw4g4sqrid6dl"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_0nx3n"]
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="2_liuhe"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bbmpfj34p0b0l" path="res://main_menu/text_logo.png" id="3_nd25y"]
 [ext_resource type="PackedScene" uid="uid://d16qd818ockuk" path="res://sound_panel/sound_panel.tscn" id="5_xch1e"]
 [ext_resource type="PackedScene" uid="uid://cj3fkuhefwftt" path="res://game_scene/nebula/nebula.tscn" id="6_kd44w"]
+[ext_resource type="Script" path="res://main_menu/low_scores_panel.gd" id="6_ncvyk"]
 [ext_resource type="AudioStream" uid="uid://deo3obcq7ifte" path="res://main_menu/music/menu bgm.ogg" id="7_55xkq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqvvs"]
@@ -82,21 +83,32 @@ text = "Credits"
 layout_mode = 2
 focus_neighbor_left = NodePath("../CreditsButton")
 focus_neighbor_top = NodePath("../CreditsButton")
-focus_neighbor_right = NodePath("../QuitButton")
-focus_neighbor_bottom = NodePath("../QuitButton")
-focus_next = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../LowScoresButton")
+focus_neighbor_bottom = NodePath("../LowScoresButton")
+focus_next = NodePath("../LowScoresButton")
 focus_previous = NodePath("../CreditsButton")
 theme = ExtResource("2_liuhe")
 text = "Sound"
 
-[node name="QuitButton" type="Button" parent="MainMenuButtonContainer"]
+[node name="LowScoresButton" type="Button" parent="MainMenuButtonContainer"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../SoundButton")
 focus_neighbor_top = NodePath("../SoundButton")
+focus_neighbor_right = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../SoundButton")
+theme = ExtResource("2_liuhe")
+text = "Low Scores"
+
+[node name="QuitButton" type="Button" parent="MainMenuButtonContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../LowScoresButton")
+focus_neighbor_top = NodePath("../LowScoresButton")
 focus_neighbor_right = NodePath("../PlayButton")
 focus_neighbor_bottom = NodePath("../PlayButton")
 focus_next = NodePath("../PlayButton")
-focus_previous = NodePath("../SoundButton")
+focus_previous = NodePath("../LowScoresButton")
 theme = ExtResource("2_liuhe")
 text = "Quit"
 
@@ -379,6 +391,89 @@ layout_mode = 1
 offset_top = -175.0
 offset_bottom = 175.0
 
+[node name="LowScoresPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -150.0
+offset_right = 400.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_liuhe")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqvvs")
+script = ExtResource("6_ncvyk")
+
+[node name="MarginContainer" type="MarginContainer" parent="LowScoresPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LowScoresPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LowScoresPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="LowScoresPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_liuhe")
+theme_type_variation = &"HeaderMedium"
+text = "Low Scores"
+
+[node name="score0" type="Label" parent="LowScoresPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_liuhe")
+
+[node name="score1" type="Label" parent="LowScoresPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_liuhe")
+
+[node name="score2" type="Label" parent="LowScoresPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_liuhe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LowScoresPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="CloseButton" type="Button" parent="LowScoresPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath("../ClearScoresButton")
+focus_neighbor_top = NodePath("../ClearScoresButton")
+focus_neighbor_right = NodePath("../ClearScoresButton")
+focus_neighbor_bottom = NodePath("../ClearScoresButton")
+focus_next = NodePath("../ClearScoresButton")
+focus_previous = NodePath("../ClearScoresButton")
+theme = ExtResource("2_liuhe")
+text = "Go Back"
+
+[node name="ClearScoresButton" type="Button" parent="LowScoresPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../CloseButton")
+focus_neighbor_top = NodePath("../CloseButton")
+focus_neighbor_right = NodePath("../CloseButton")
+focus_neighbor_bottom = NodePath("../CloseButton")
+focus_next = NodePath("../CloseButton")
+focus_previous = NodePath("../CloseButton")
+text = "Erase"
+
 [node name="nebula" parent="." instance=ExtResource("6_kd44w")]
 z_index = -100
 position = Vector2(569, 321)
@@ -393,6 +488,10 @@ bus = &"Music"
 [connection signal="pressed" from="MainMenuButtonContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="MainMenuButtonContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenuButtonContainer/SoundButton" to="." method="_on_sound_button_pressed"]
+[connection signal="pressed" from="MainMenuButtonContainer/LowScoresButton" to="." method="_on_low_scores_button_pressed"]
 [connection signal="pressed" from="MainMenuButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
 [connection signal="pressed" from="ControlsPanel/MarginContainer/VBoxContainer/CloseControlsButton" to="." method="_on_close_controls_button_pressed"]
+[connection signal="closed" from="LowScoresPanel" to="." method="_on_low_scores_panel_closed"]
+[connection signal="pressed" from="LowScoresPanel/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="LowScoresPanel" method="_close"]
+[connection signal="pressed" from="LowScoresPanel/MarginContainer/VBoxContainer/HBoxContainer/ClearScoresButton" to="LowScoresPanel" method="_clear_and_close"]

@@ -45,6 +45,12 @@ func _on_sound_button_pressed() -> void:
 func _on_sound_panel_closed() -> void:
 	$MainMenuButtonContainer/SoundButton.grab_focus()
 
+func _on_low_scores_button_pressed() -> void:
+	$LowScoresPanel.go()
+
+func _on_low_scores_panel_closed() -> void:
+	$MainMenuButtonContainer/LowScoresButton.grab_focus()
+
 func _on_quit_button_pressed():
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
