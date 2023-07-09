@@ -3,6 +3,9 @@ shader_type canvas_item;
 // Color of the monochrome display
 uniform vec4 color : source_color = vec4(0.89, 0.953, 0, 1.0);
 
+// Background color
+uniform vec4 background_color : source_color = vec4(0.0, 0.0, 0.0, 0.0);
+
 // How many shades we support
 uniform float palette_size = 4.0;
 
@@ -44,7 +47,7 @@ void fragment() {
 		|| remainder_uv.y > 0.9
 		|| remainder_uv.x > 0.9
 	) {
-		COLOR.r = COLOR.g = COLOR.b = 0.0;
+		COLOR = background_color;
 	}
 	else if (
 		   UV.x < border_scale
@@ -52,7 +55,7 @@ void fragment() {
 		|| UV.y > (1.0 - border_scale)
 		|| UV.x > (1.0 - border_scale)
 	) {
-		COLOR.r = COLOR.g = COLOR.b = 0.0;
+		COLOR = background_color;
 	}
 	else if ( brightness < 0.2 ) {
 		COLOR = color * 0.05;

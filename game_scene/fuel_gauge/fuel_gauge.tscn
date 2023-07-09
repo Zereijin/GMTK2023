@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6n3vq51hl2gb"]
+[gd_scene load_steps=5 format=3 uid="uid://b6n3vq51hl2gb"]
 
 [ext_resource type="Script" path="res://game_scene/fuel_gauge/fuel_gauge.gd" id="1_v26rp"]
+[ext_resource type="PackedScene" uid="uid://3dmsjqgp2yq5" path="res://game_scene/matrix_display/matrixify.tscn" id="2_pbdxe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahmwj"]
-bg_color = Color(0.384314, 0, 0, 1)
+bg_color = Color(0.12, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxcg8"]
-bg_color = Color(0.211765, 0.709804, 0.266667, 1)
+bg_color = Color(1, 1, 1, 1)
 
 [node name="fuel_gauge" type="ProgressBar"]
+clip_contents = true
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_ahmwj")
@@ -16,3 +18,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_cxcg8")
 max_value = 1.0
 show_percentage = false
 script = ExtResource("1_v26rp")
+
+[node name="Matrixify" parent="." instance=ExtResource("2_pbdxe")]
+color = Color(0.996078, 0, 0, 1)
+background_color = Color(0.117647, 0, 0, 1)
+border_scale = 0.0

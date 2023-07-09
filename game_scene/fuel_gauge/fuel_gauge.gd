@@ -7,3 +7,6 @@ func _ready() -> void:
 
 func _on_fuel_changed(new_value: float) -> void:
 	value = new_value
+	
+func _draw():
+	$Matrixify.scale = self.size*2.0

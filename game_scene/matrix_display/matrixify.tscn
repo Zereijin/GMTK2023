@@ -6,6 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dvim8"]
 shader = ExtResource("1_f2j7j")
 shader_parameter/color = Color(0.890196, 0.952941, 0, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
 shader_parameter/palette_size = 4.0
 shader_parameter/matrix_pixel_size = Vector2(4, 4)
 shader_parameter/border_scale = 1.0
@@ -16,7 +17,6 @@ orientation = 2
 
 [node name="Matrixify" type="MeshInstance2D"]
 material = SubResource("ShaderMaterial_dvim8")
-scale = Vector2(512, 512)
 mesh = SubResource("PlaneMesh_t1pc0")
 script = ExtResource("2_e31se")
 color = Color(0.890196, 0.8, 0, 1)
