@@ -1,9 +1,9 @@
 extends Node2D
 
 func fire() -> void:
-	$blueGPUParticles2D.emitting = true
-	$cyanGPUParticles2D.emitting = true
-	$greenGPUParticles2D.emitting = true
-	$magentaGPUParticles2D.emitting = true
-	$redGPUParticles2D.emitting = true
-	$yellowGPUParticles2D.emitting = true
+	$blueGPUParticles2D.restart()
+	$cyanGPUParticles2D.restart()
+	$greenGPUParticles2D.restart()
+	$magentaGPUParticles2D.restart()
+	$redGPUParticles2D.restart()
+	$yellowGPUParticles2D.restart()
