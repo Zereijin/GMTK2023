@@ -103,14 +103,18 @@ _data = {
 script = ExtResource("1_sgwaw")
 
 [node name="cannon1" parent="." instance=ExtResource("2_iacra")]
+rotation = -0.523599
 
 [node name="cannon2" parent="." instance=ExtResource("2_iacra")]
+rotation = -0.261799
 
 [node name="cannon3" parent="." instance=ExtResource("2_iacra")]
 
 [node name="cannon4" parent="." instance=ExtResource("2_iacra")]
+rotation = 0.261799
 
 [node name="cannon5" parent="." instance=ExtResource("2_iacra")]
+rotation = 0.523599
 
 [node name="sound" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"
