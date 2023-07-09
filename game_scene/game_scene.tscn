@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bnbynmc7vcs5n" path="res://game_scene/bumper/bumper.tscn" id="19_rjsla"]
 [ext_resource type="AudioStream" uid="uid://cref8sid3n7if" path="res://game_scene/ball gain.ogg" id="21_7ru0g"]
 [ext_resource type="PackedScene" uid="uid://dxl51m68b0pox" path="res://game_scene/kickout_hole/kickout_hole.tscn" id="21_wcehi"]
-[ext_resource type="PackedScene" uid="uid://b28kkd1d2pfht" path="res://game_scene/confetti/cannon.tscn" id="24_yalw3"]
+[ext_resource type="PackedScene" uid="uid://jpggbi10p40w" path="res://game_scene/confetti/cannonade.tscn" id="25_bqey4"]
 
 [sub_resource type="Resource" id="Resource_ansk7"]
 script = ExtResource("5_jihvj")
@@ -1629,7 +1629,7 @@ bus = &"SFX"
 position = Vector2(-293, -1068)
 texture = ExtResource("19_epxi0")
 
-[node name="confetti_cannon" parent="." instance=ExtResource("24_yalw3")]
+[node name="confetti_cannon" parent="." instance=ExtResource("25_bqey4")]
 position = Vector2(2.08165e-12, 1100)
 
 [connection signal="relaunched" from="launcher" to="." method="_on_relaunched"]
