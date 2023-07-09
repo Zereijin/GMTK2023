@@ -352,8 +352,8 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
-text = "Arrow Keys: Nudge yourself in a direction
-Space Bar: Hold to slow your velocity
+text = "Arrow Keys / WASD / D-Pad: Nudge yourself in a direction
+Space Bar / A button: Hold to slow your velocity
 
 Note: All actions take an amount of willpower.
 If you do not have enough willpower, you

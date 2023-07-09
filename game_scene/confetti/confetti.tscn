@@ -35,6 +35,7 @@ texture = ExtResource("1_5gc58")
 lifetime = 10.0
 one_shot = true
 explosiveness = 1.0
+visibility_rect = Rect2(-10000, -10000, 10000, 10000)
 
 [node name="cyanGPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
@@ -43,6 +44,7 @@ texture = ExtResource("2_wnv50")
 lifetime = 10.0
 one_shot = true
 explosiveness = 1.0
+visibility_rect = Rect2(-10000, -10000, 10000, 10000)
 
 [node name="greenGPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
@@ -51,6 +53,7 @@ texture = ExtResource("3_nj0pr")
 lifetime = 10.0
 one_shot = true
 explosiveness = 1.0
+visibility_rect = Rect2(-10000, -10000, 10000, 10000)
 
 [node name="magentaGPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
@@ -59,6 +62,7 @@ texture = ExtResource("4_msomj")
 lifetime = 10.0
 one_shot = true
 explosiveness = 1.0
+visibility_rect = Rect2(-10000, -10000, 10000, 10000)
 
 [node name="redGPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
@@ -67,6 +71,7 @@ texture = ExtResource("5_3pi75")
 lifetime = 10.0
 one_shot = true
 explosiveness = 1.0
+visibility_rect = Rect2(-10000, -10000, 10000, 10000)
 
 [node name="yellowGPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
@@ -75,3 +80,4 @@ texture = ExtResource("6_4nwbi")
 lifetime = 10.0
 one_shot = true
 explosiveness = 1.0
+visibility_rect = Rect2(-10000, -10000, 10000, 10000)
