@@ -53,6 +53,8 @@ layout_mode = 2
 [node name="buttons" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+theme = ExtResource("2_ga78b")
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="retry_button" type="Button" parent="VBoxContainer/buttons"]
