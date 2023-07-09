@@ -6,6 +6,9 @@ signal fuel_changed(new_value: float)
 ## Emitted when the number of extra balls available changes.
 signal extra_balls_changed(new_value: int)
 
+## Emitted when an extra ball is earned, immediately after extra_balls_changed for the same event.
+signal extra_ball_earned()
+
 ## Emitted when the score changes.
 signal score_changed(new_value: int)
 
@@ -184,3 +187,4 @@ func _add_points(amount: int) -> void:
 	if before != after:
 		extra_balls += after - before
 		extra_balls_changed.emit(extra_balls)
+		extra_ball_earned.emit()

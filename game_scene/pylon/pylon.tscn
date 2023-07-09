@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnbx7rddw0b0x"]
+[gd_scene load_steps=13 format=3 uid="uid://bnbx7rddw0b0x"]
 
 [ext_resource type="Script" path="res://game_scene/pylon/pylon.gd" id="1_0iuv5"]
 [ext_resource type="Texture2D" uid="uid://d38kfqtxmarls" path="res://game_scene/pylon/pylon_hit.png" id="2_4f32k"]
@@ -13,6 +13,14 @@ point_count = 4
 [sub_resource type="CurveTexture" id="CurveTexture_bpkek"]
 curve = SubResource("Curve_3mhlk")
 
+[sub_resource type="Gradient" id="Gradient_bg6m6"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.748148, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_syr52"]
+gradient = SubResource("Gradient_bg6m6")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5348d"]
 lifetime_randomness = 0.1
 particle_flag_disable_z = true
@@ -26,6 +34,7 @@ damping_max = 5.0
 angle_max = 120.0
 scale_min = 0.05
 scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_syr52")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1rcc"]
 animations = [{

@@ -39,7 +39,7 @@ size_flags_vertical = 3
 layout_mode = 2
 theme = ExtResource("2_ga78b")
 theme_type_variation = &"HeaderMedium"
-text = "High Scores"
+text = "Low Scores"
 
 [node name="score0" parent="VBoxContainer/scores" instance=ExtResource("3_beb64")]
 layout_mode = 2

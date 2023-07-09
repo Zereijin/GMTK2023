@@ -1,5 +1,8 @@
 extends Node2D
 
+## Emitted when a relaunch occurs.
+signal relaunched()
+
 ## The minimum length of time to wait, after the trigger area is entered, before starting pullback.
 @export_range(0.3, 10.0, 0.1)
 var settle_time_minimum := 1.0
@@ -94,6 +97,7 @@ func _physics_process(delta: float) -> void:
 	# Update player data.
 	if not PlayerData.first_launch:
 		PlayerData.score_relaunch()
+		relaunched.emit()
 	PlayerData.first_launch = false
 	# Move the collision body back afterwards, to avoid interfering with the launching ball.
 	_body.position = body_orig_pos

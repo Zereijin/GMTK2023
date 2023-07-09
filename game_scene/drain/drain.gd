@@ -3,6 +3,9 @@ extends Area2D
 ## Emitted when the game is over.
 signal game_over()
 
+## Emitted when a ball is drained and the game is not over.
+signal drained()
+
 ## The ball.
 @export
 var ball: Ball
@@ -20,9 +23,12 @@ func _on_body_entered(body: Node2D) -> void:
 	assert(ball != null)
 	ball.sensitive = false
 	ball.sleeping = true
+	var another := PlayerData.use_ball()
+	if another:
+		drained.emit()
 	_audio.play()
 	await _audio.finished
-	if PlayerData.use_ball():
+	if another:
 		PlayerData.first_launch = true
 		ball.position = _initial_ball_position
 		ball.linear_velocity = Vector2.ZERO
