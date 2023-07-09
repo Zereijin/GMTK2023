@@ -92,9 +92,11 @@ func _physics_process(delta: float) -> void:
 			apply_force(linear_velocity * drag_factor)
 
 		if _drag_state == DragState.ACTIVE:
+			$dragGPUParticles2D.emitting = true
 			if not $dragAudioStreamPlayer2D.is_playing():
 				$dragAudioStreamPlayer2D.play()
 		else:
+			$dragGPUParticles2D.emitting = false
 			if $dragAudioStreamPlayer2D.is_playing():
 				$dragAudioStreamPlayer2D.stop()
 	else:
