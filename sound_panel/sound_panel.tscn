@@ -123,7 +123,7 @@ focus_previous = NodePath("../GridContainer/SFXSlider")
 theme = ExtResource("1_jp8uw")
 text = "Go Back"
 
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="_on_volume_slider_value_changed" binds= ["Master"]]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_volume_slider_value_changed" binds= ["Music"]]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_volume_slider_value_changed" binds= ["SFX"]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CloseSoundButton" to="." method="_on_close_button_pressed"]
