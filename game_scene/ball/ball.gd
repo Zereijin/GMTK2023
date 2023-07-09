@@ -91,16 +91,17 @@ func _physics_process(delta: float) -> void:
 		if _drag_state == DragState.ACTIVE:
 			apply_force(linear_velocity * drag_factor)
 
-		if _drag_state == DragState.ACTIVE:
-			$dragGPUParticles2D.emitting = true
-			if not $dragAudioStreamPlayer2D.is_playing():
-				$dragAudioStreamPlayer2D.play()
-		else:
-			$dragGPUParticles2D.emitting = false
-			if $dragAudioStreamPlayer2D.is_playing():
-				$dragAudioStreamPlayer2D.stop()
 	else:
 		_drag_state = DragState.IDLE
+
+	if _drag_state == DragState.ACTIVE:
+		$dragGPUParticles2D.emitting = true
+		if not $dragAudioStreamPlayer2D.is_playing():
+			$dragAudioStreamPlayer2D.play()
+	else:
+		$dragGPUParticles2D.emitting = false
+		if $dragAudioStreamPlayer2D.is_playing():
+			$dragAudioStreamPlayer2D.stop()
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("ball_collision_notifiable"):
