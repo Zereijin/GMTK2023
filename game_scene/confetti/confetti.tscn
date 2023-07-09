@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://b28kkd1d2pfht"]
+
+[ext_resource type="Texture2D" uid="uid://dxj5gno82dtq7" path="res://game_scene/confetti/confetti_blue.png" id="1_5gc58"]
+[ext_resource type="Texture2D" uid="uid://cxgnruyc2ssaj" path="res://game_scene/confetti/confetti_cyan.png" id="2_wnv50"]
+[ext_resource type="Texture2D" uid="uid://coskky3vgym02" path="res://game_scene/confetti/confetti_green.png" id="3_nj0pr"]
+[ext_resource type="Texture2D" uid="uid://h6vpoxexe8x8" path="res://game_scene/confetti/confetti_magenta.png" id="4_msomj"]
+[ext_resource type="Texture2D" uid="uid://lgfg227xyagl" path="res://game_scene/confetti/confetti_red.png" id="5_3pi75"]
+[ext_resource type="Texture2D" uid="uid://dosqmi2ubh0bw" path="res://game_scene/confetti/confetti_yellow.png" id="6_4nwbi"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a1kmy"]
+particle_flag_disable_z = true
+direction = Vector3(2.08165e-12, -1, 2.08165e-12)
+spread = 15.0
+gravity = Vector3(2.08165e-12, 200, 2.08165e-12)
+initial_velocity_min = 400.0
+initial_velocity_max = 600.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.4
+scale_max = 0.6
+
+[node name="confetti_cannon" type="Node2D"]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(2.08165e-12, -500)
+
+[node name="blueGPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_a1kmy")
+texture = ExtResource("1_5gc58")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+
+[node name="cyanGPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_a1kmy")
+texture = ExtResource("2_wnv50")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+
+[node name="greenGPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_a1kmy")
+texture = ExtResource("3_nj0pr")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+
+[node name="magentaGPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_a1kmy")
+texture = ExtResource("4_msomj")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+
+[node name="redGPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_a1kmy")
+texture = ExtResource("5_3pi75")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+
+[node name="yellowGPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_a1kmy")
+texture = ExtResource("6_4nwbi")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
