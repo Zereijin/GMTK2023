@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4go7s62rahph"]
+[gd_scene load_steps=22 format=3 uid="uid://c4go7s62rahph"]
 
 [ext_resource type="Script" path="res://game_scene/ball/ball.gd" id="1_trjlc"]
 [ext_resource type="Texture2D" uid="uid://l1qyhg0ulmrv" path="res://game_scene/ball/smoke_particle.png" id="2_bkir0"]
 [ext_resource type="Texture2D" uid="uid://4yrcihh6weol" path="res://game_scene/ball/ball.png" id="2_cqyau"]
 [ext_resource type="Texture2D" uid="uid://diwrfsedb0leg" path="res://game_scene/ball/drag_particle.png" id="3_5od4f"]
 [ext_resource type="AudioStream" uid="uid://h2k3l4mnb4hx" path="res://game_scene/ball/ball_nudge.ogg" id="4_f6nxa"]
+[ext_resource type="Texture2D" uid="uid://dbmjbuxo633m" path="res://game_scene/ball/ball_exhausted.png" id="4_ys3q8"]
 [ext_resource type="AudioStream" uid="uid://uvekuka24er4" path="res://game_scene/ball/ball stick.ogg" id="5_hos4x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sn330"]
@@ -60,6 +61,25 @@ scale_min = 0.1
 scale_max = 0.4
 color_ramp = SubResource("GradientTexture1D_4xs41")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_5v2xl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ys3q8")
+}],
+"loop": true,
+"name": &"cooldown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cqyau")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihpjw"]
 radius = 30.0
 
@@ -106,12 +126,12 @@ amount = 32
 process_material = SubResource("ParticleProcessMaterial_qno6r")
 texture = ExtResource("3_5od4f")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_5v2xl")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ihpjw")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_cqyau")
 
 [node name="cooldownGPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false

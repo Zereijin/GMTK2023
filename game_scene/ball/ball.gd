@@ -105,9 +105,11 @@ func _physics_process(delta: float) -> void:
 
 	if _drag_state == DragState.COOLING_DOWN:
 		if not $cooldownGPUParticles2D.emitting:
+			$AnimatedSprite2D.play("cooldown")
 			$cooldownGPUParticles2D.emitting = true
 	else:
 		if $cooldownGPUParticles2D.emitting:
+			$AnimatedSprite2D.play("default")
 			$cooldownGPUParticles2D.emitting = false
 
 func _on_body_entered(body: Node) -> void:
@@ -129,3 +131,5 @@ func _on_visibility_changed():
 
 		$cooldownGPUParticles2D.restart()
 		$cooldownGPUParticles2D.emitting = false
+
+		$AnimatedSprite2D.play("default")
