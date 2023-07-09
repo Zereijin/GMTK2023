@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game_scene/confetti/cannonade.gd" id="1_sgwaw"]
 [ext_resource type="PackedScene" uid="uid://b28kkd1d2pfht" path="res://game_scene/confetti/cannon.tscn" id="2_iacra"]
-[ext_resource type="AudioStream" uid="uid://uk6yyxcouipi" path="res://game_scene/confetti/partyblower.ogg" id="3_b7ft3"]
+[ext_resource type="AudioStream" uid="uid://d0t1qwv5y5q08" path="res://game_scene/confetti/partyblower.ogg" id="3_b7ft3"]
 
 [sub_resource type="Animation" id="Animation_o6y3l"]
 resource_name = "fire"
