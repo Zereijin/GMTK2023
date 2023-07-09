@@ -388,8 +388,6 @@ text = "Go Back"
 [node name="SoundPanel" parent="." instance=ExtResource("5_xch1e")]
 visible = false
 layout_mode = 1
-offset_top = -175.0
-offset_bottom = 175.0
 
 [node name="LowScoresPanel" type="Panel" parent="."]
 visible = false
