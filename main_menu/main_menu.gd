@@ -1,13 +1,11 @@
 extends Control
 
 @export var start_scene: PackedScene
-var mainMenuFocusButton : Button
 
 func _ready():
 	get_tree().paused = false
 	randomize()
-	mainMenuFocusButton = $MainMenuButtonContainer/PlayButton
-	mainMenuFocusButton.grab_focus()
+	$MainMenuButtonContainer/PlayButton.grab_focus()
 	Music.play = false
 
 func _on_play_button_pressed():
@@ -17,22 +15,20 @@ func _on_play_button_pressed():
 		get_tree().quit(1)
 
 func _on_credits_button_pressed():
-	mainMenuFocusButton = $MainMenuButtonContainer/CreditsButton
 	$CreditPanel.visible=true
 	$CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton.grab_focus()
 
 func _on_close_credits_button_pressed():
 	$CreditPanel.visible=false
-	mainMenuFocusButton.grab_focus()
+	$MainMenuButtonContainer/CreditsButton.grab_focus()
 
 func _on_controls_button_pressed():
-	mainMenuFocusButton = $MainMenuButtonContainer/ControlsButton
 	$ControlsPanel.visible=true
 	$ControlsPanel/MarginContainer/VBoxContainer/CloseControlsButton.grab_focus()
 
 func _on_close_controls_button_pressed():
 	$ControlsPanel.visible=false
-	mainMenuFocusButton.grab_focus()
+	$MainMenuButtonContainer/ControlsButton.grab_focus()
 
 func _on_quit_button_pressed():
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
