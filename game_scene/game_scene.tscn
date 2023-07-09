@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bnbynmc7vcs5n" path="res://game_scene/bumper/bumper.tscn" id="19_rjsla"]
 [ext_resource type="AudioStream" uid="uid://cref8sid3n7if" path="res://game_scene/ball gain.ogg" id="21_7ru0g"]
 [ext_resource type="PackedScene" uid="uid://dxl51m68b0pox" path="res://game_scene/kickout_hole/kickout_hole.tscn" id="21_wcehi"]
-[ext_resource type="PackedScene" uid="uid://b28kkd1d2pfht" path="res://game_scene/confetti/confetti.tscn" id="24_yalw3"]
+[ext_resource type="PackedScene" uid="uid://b28kkd1d2pfht" path="res://game_scene/confetti/cannon.tscn" id="24_yalw3"]
 
 [sub_resource type="Resource" id="Resource_ansk7"]
 script = ExtResource("5_jihvj")
