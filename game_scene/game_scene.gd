@@ -21,7 +21,6 @@ var extra_ball_message := "EXTRA BALL"
 var scoreboard: IntegerDisplay
 
 func _ready() -> void:
-	get_tree().paused = false
 	PlayerData.connect("extra_ball_earned", _on_extra_ball_earned)
 	PlayerData.start_game()
 	Music.play = true
@@ -29,7 +28,6 @@ func _ready() -> void:
 		hole.connect("captured", _on_kickout_capture)
 
 func _on_game_over() -> void:
-	get_tree().paused = true
 	var low_score_data := PlayerData.end_game()
 	$hud/end_scene.go(low_score_data[0], low_score_data[1])
 
