@@ -103,6 +103,13 @@ func _physics_process(delta: float) -> void:
 		if $dragAudioStreamPlayer2D.is_playing():
 			$dragAudioStreamPlayer2D.stop()
 
+	if _drag_state == DragState.COOLING_DOWN:
+		if not $cooldownGPUParticles2D.emitting:
+			$cooldownGPUParticles2D.emitting = true
+	else:
+		if $cooldownGPUParticles2D.emitting:
+			$cooldownGPUParticles2D.emitting = false
+
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("ball_collision_notifiable"):
 		body.ball_contact(self)
@@ -119,3 +126,6 @@ func _on_visibility_changed():
 
 		$dragGPUParticles2D.restart()
 		$dragGPUParticles2D.emitting = false
+
+		$cooldownGPUParticles2D.restart()
+		$cooldownGPUParticles2D.emitting = false
