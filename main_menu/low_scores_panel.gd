@@ -9,7 +9,7 @@ func go() -> void:
 	# Populate the score labels.
 	var scores := PlayerData.read_lowest_scores()
 	for i in range(scores.size()):
-		var node: Label = $MarginContainer/VBoxContainer/VBoxContainer.get_node("score" + str(i))
+		var node: Label = $MarginContainer/VBoxContainer/MarginContainer/VBoxContainer.get_node("score" + str(i))
 		node.text = str(scores[i])
 
 	# Display the panel.
