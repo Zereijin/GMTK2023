@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4go7s62rahph"]
+[gd_scene load_steps=12 format=3 uid="uid://c4go7s62rahph"]
 
 [ext_resource type="Script" path="res://game_scene/ball/ball.gd" id="1_trjlc"]
 [ext_resource type="Texture2D" uid="uid://l1qyhg0ulmrv" path="res://game_scene/ball/smoke_particle.png" id="2_bkir0"]
 [ext_resource type="Texture2D" uid="uid://4yrcihh6weol" path="res://game_scene/ball/ball.png" id="2_cqyau"]
+[ext_resource type="AudioStream" uid="uid://h2k3l4mnb4hx" path="res://game_scene/ball/ball_nudge.ogg" id="4_f6nxa"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sn330"]
 friction = 0.2
@@ -61,5 +62,9 @@ shape = SubResource("CircleShape2D_ihpjw")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_cqyau")
+
+[node name="nudgeAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_f6nxa")
+max_polyphony = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
