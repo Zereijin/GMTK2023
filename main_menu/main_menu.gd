@@ -18,20 +18,20 @@ func _on_play_button_pressed():
 
 func _on_credits_button_pressed():
 	mainMenuFocusButton = $MainMenuButtonContainer/CreditsButton
-	get_node("CreditPanel").visible=true
+	$CreditPanel.visible=true
 	$CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton.grab_focus()
 
 func _on_close_credits_button_pressed():
-	get_node("CreditPanel").visible=false
+	$CreditPanel.visible=false
 	mainMenuFocusButton.grab_focus()
 
 func _on_controls_button_pressed():
 	mainMenuFocusButton = $MainMenuButtonContainer/ControlsButton
-	get_node("ControlsPanel").visible=true
+	$ControlsPanel.visible=true
 	$ControlsPanel/MarginContainer/VBoxContainer/CloseControlsButton.grab_focus()
 
 func _on_close_controls_button_pressed():
-	get_node("ControlsPanel").visible=false
+	$ControlsPanel.visible=false
 	mainMenuFocusButton.grab_focus()
 
 func _on_quit_button_pressed():
