@@ -75,6 +75,9 @@ func _on_quit_button_pressed():
 func _on_volume_slider_value_changed(value: float, bus: String) -> void:
 	var db := _linear_to_decibel(_perceptual_to_linear(value))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus), db)
+	var preview := $SoundPanel/PreviewSounds.get_node(bus) as AudioStreamPlayer
+	if preview != null:
+		preview.play()
 
 ## Converts a perceptual volume between 0 and 1 to a linear volume between 0 and 1.
 func _perceptual_to_linear(value: float) -> float:

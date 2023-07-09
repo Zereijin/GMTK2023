@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw4g4sqrid6dl"]
+[gd_scene load_steps=7 format=3 uid="uid://bw4g4sqrid6dl"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_0nx3n"]
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="2_liuhe"]
 [ext_resource type="PackedScene" uid="uid://dmg85pdsmpox8" path="res://game_scene/game_scene.tscn" id="2_pi1d5"]
 [ext_resource type="Texture2D" uid="uid://bbmpfj34p0b0l" path="res://main_menu/text_logo.png" id="3_nd25y"]
+[ext_resource type="AudioStream" uid="uid://lkbkapalspkk" path="res://game_scene/flipper/flipper_press.ogg" id="5_a8koy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqvvs"]
 bg_color = Color(0, 0, 0, 1)
@@ -368,6 +369,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_liuhe")
 theme_override_styles/panel = SubResource("StyleBoxFlat_qqvvs")
+
+[node name="PreviewSounds" type="Node" parent="SoundPanel"]
+
+[node name="SFX" type="AudioStreamPlayer" parent="SoundPanel/PreviewSounds"]
+stream = ExtResource("5_a8koy")
+bus = &"SFX"
 
 [node name="MarginContainer" type="MarginContainer" parent="SoundPanel"]
 layout_mode = 1
