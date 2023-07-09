@@ -61,6 +61,14 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed(action):
 				if PlayerData.use_bump():
 					apply_central_impulse(_bump_impulses[action])
+
+					$smokeGPUParticles2D.process_material.direction = -Vector3(_bump_impulses[action].x, _bump_impulses[action].y, 0.0)
+					# Call restart() to emit new particle.
+					# Otherwise, setting `emitting` to true during a particle cycle has no effect.
+					$smokeGPUParticles2D.restart()
+
+					$nudgeAudioStreamPlayer2D.play()
+
 		# Handle drag.
 		match (_drag_state):
 			DragState.IDLE:
