@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpw883smvnscp"
-path="res://.godot/imported/wall_outlines.png-b477b5d57d849004d15b39dc12f34fb0.ctex"
+uid="uid://c575uqckgnciw"
+path="res://.godot/imported/wall corner.png-f7f920a8860cc20e28479c11e20ce772.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_scene/wall_outlines.png"
-dest_files=["res://.godot/imported/wall_outlines.png-b477b5d57d849004d15b39dc12f34fb0.ctex"]
+source_file="res://textures/wall corner.png"
+dest_files=["res://.godot/imported/wall corner.png-f7f920a8860cc20e28479c11e20ce772.ctex"]
 
 [params]
 
