@@ -105,3 +105,16 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("ball_collision_notifiable"):
 		body.ball_contact(self)
+
+
+func _on_visibility_changed():
+	if visible == false:
+		# Remove all smoke and drag particles.
+		# Otherwise, they also become invisible but freeze in time.
+		# They then become visible again when the ball reappears.
+		# Particles are removed by first restarting emit, and then immediately setting emitting to false
+		$smokeGPUParticles2D.restart()
+		$smokeGPUParticles2D.emitting = false
+
+		$dragGPUParticles2D.restart()
+		$dragGPUParticles2D.emitting = false
