@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=3 uid="uid://d16qd818ockuk"]
+
+[ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="1_jp8uw"]
+[ext_resource type="Script" path="res://main_menu/sound_panel.gd" id="2_faqe3"]
+[ext_resource type="AudioStream" uid="uid://lkbkapalspkk" path="res://game_scene/flipper/flipper_press.ogg" id="3_d5kqb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqvvs"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="SoundPanel" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -104.0
+offset_right = 400.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jp8uw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqvvs")
+script = ExtResource("2_faqe3")
+
+[node name="PreviewSounds" type="Node" parent="."]
+
+[node name="SFX" type="AudioStreamPlayer" parent="PreviewSounds"]
+stream = ExtResource("3_d5kqb")
+bus = &"SFX"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_jp8uw")
+theme_type_variation = &"HeaderMedium"
+text = "Master:"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../../CloseSoundButton")
+focus_neighbor_top = NodePath("../../CloseSoundButton")
+focus_neighbor_right = NodePath("../MusicSlider")
+focus_neighbor_bottom = NodePath("../MusicSlider")
+focus_next = NodePath("../MusicSlider")
+focus_previous = NodePath("../../CloseSoundButton")
+max_value = 1.0
+step = 0.05
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_jp8uw")
+theme_type_variation = &"HeaderMedium"
+text = "Music:"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../MasterSlider")
+focus_neighbor_top = NodePath("../MasterSlider")
+focus_neighbor_right = NodePath("../SFXSlider")
+focus_neighbor_bottom = NodePath("../SFXSlider")
+focus_next = NodePath("../SFXSlider")
+focus_previous = NodePath("../MasterSlider")
+max_value = 1.0
+step = 0.05
+
+[node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_jp8uw")
+theme_type_variation = &"HeaderMedium"
+text = "Sound effects:"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../MusicSlider")
+focus_neighbor_top = NodePath("../MusicSlider")
+focus_neighbor_right = NodePath("../../CloseSoundButton")
+focus_neighbor_bottom = NodePath("../../CloseSoundButton")
+focus_next = NodePath("../../CloseSoundButton")
+focus_previous = NodePath("../MusicSlider")
+max_value = 1.0
+step = 0.05
+
+[node name="CloseSoundButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath("../GridContainer/SFXSlider")
+focus_neighbor_top = NodePath("../GridContainer/SFXSlider")
+focus_neighbor_right = NodePath("../GridContainer/MasterSlider")
+focus_neighbor_bottom = NodePath("../GridContainer/MasterSlider")
+focus_next = NodePath("../GridContainer/MasterSlider")
+focus_previous = NodePath("../GridContainer/SFXSlider")
+theme = ExtResource("1_jp8uw")
+text = "Go Back"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CloseSoundButton" to="." method="_on_close_button_pressed"]
