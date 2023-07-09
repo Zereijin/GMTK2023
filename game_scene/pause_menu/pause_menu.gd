@@ -4,6 +4,7 @@ extends Control
 ## Displays the pause menu.
 func go() -> void:
 	visible = true
+	$sound_panel.visible = false
 	$buttons/resume.grab_focus()
 
 func _input(event: InputEvent) -> void:
