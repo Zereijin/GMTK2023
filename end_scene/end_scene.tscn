@@ -57,16 +57,34 @@ alignment = 1
 
 [node name="retry_button" type="Button" parent="VBoxContainer/buttons"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../exit_button")
+focus_neighbor_top = NodePath("../exit_button")
+focus_neighbor_right = NodePath("../mainmenu_button")
+focus_neighbor_bottom = NodePath("../mainmenu_button")
+focus_next = NodePath("../mainmenu_button")
+focus_previous = NodePath("../exit_button")
 theme = ExtResource("2_ga78b")
 text = "Try Again"
 
 [node name="mainmenu_button" type="Button" parent="VBoxContainer/buttons"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../retry_button")
+focus_neighbor_top = NodePath("../retry_button")
+focus_neighbor_right = NodePath("../exit_button")
+focus_neighbor_bottom = NodePath("../exit_button")
+focus_next = NodePath("../exit_button")
+focus_previous = NodePath("../retry_button")
 theme = ExtResource("2_ga78b")
 text = "Main Menu"
 
 [node name="exit_button" type="Button" parent="VBoxContainer/buttons"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../mainmenu_button")
+focus_neighbor_top = NodePath("../mainmenu_button")
+focus_neighbor_right = NodePath("../retry_button")
+focus_neighbor_bottom = NodePath("../retry_button")
+focus_next = NodePath("../retry_button")
+focus_previous = NodePath("../mainmenu_button")
 theme = ExtResource("2_ga78b")
 text = "Exit"
 
