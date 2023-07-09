@@ -1,4 +1,4 @@
-[gd_scene load_steps=184 format=3 uid="uid://dmg85pdsmpox8"]
+[gd_scene load_steps=185 format=3 uid="uid://dmg85pdsmpox8"]
 
 [ext_resource type="PackedScene" uid="uid://c4go7s62rahph" path="res://game_scene/ball/ball.tscn" id="1_ugfsb"]
 [ext_resource type="Script" path="res://game_scene/game_scene.gd" id="1_vtrq5"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bnbynmc7vcs5n" path="res://game_scene/bumper/bumper.tscn" id="19_rjsla"]
 [ext_resource type="AudioStream" uid="uid://cref8sid3n7if" path="res://game_scene/ball gain.ogg" id="21_7ru0g"]
 [ext_resource type="PackedScene" uid="uid://dxl51m68b0pox" path="res://game_scene/kickout_hole/kickout_hole.tscn" id="21_wcehi"]
+[ext_resource type="PackedScene" uid="uid://cu15byho1mtbo" path="res://game_scene/pause_menu/pause_menu.tscn" id="23_2m410"]
 [ext_resource type="PackedScene" uid="uid://jpggbi10p40w" path="res://game_scene/confetti/cannonade.tscn" id="25_bqey4"]
 
 [sub_resource type="Resource" id="Resource_tn1fr"]
@@ -1619,6 +1620,9 @@ layout_mode = 2
 property = "extra_balls"
 
 [node name="end_scene" parent="hud" instance=ExtResource("19_5wpqy")]
+visible = false
+
+[node name="pause_menu" parent="hud" instance=ExtResource("23_2m410")]
 visible = false
 
 [node name="extra_ball_sound" type="AudioStreamPlayer" parent="."]

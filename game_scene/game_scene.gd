@@ -20,6 +20,9 @@ var extra_ball_message := "EXTRA BALL"
 @export
 var scoreboard: IntegerDisplay
 
+## Whether the game is over.
+var _game_over := false
+
 func _ready() -> void:
 	PlayerData.connect("extra_ball_earned", _on_extra_ball_earned)
 	PlayerData.start_game()
@@ -27,7 +30,15 @@ func _ready() -> void:
 	for hole in $holes.get_children():
 		hole.connect("captured", _on_kickout_capture)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause") and not _game_over:
+		# We know the game is unpaused here, because this node does not process during pause and
+		# _unhandled_input is not called on paused nodes.
+		get_tree().paused = true
+		$hud/pause_menu.go()
+
 func _on_game_over() -> void:
+	_game_over = true
 	var low_score_data := PlayerData.end_game()
 	$hud/end_scene.go(low_score_data[0], low_score_data[1])
 
